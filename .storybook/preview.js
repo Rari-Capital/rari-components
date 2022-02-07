@@ -1,3 +1,5 @@
+import theme from "../styles/theme.js";
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -6,4 +8,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+  chakra: {
+    theme,
+  },
+};

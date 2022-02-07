@@ -1,5 +1,6 @@
 {
   "name": "rari-components",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "npm run storybook",
@@ -7,11 +8,16 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.8.3",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "framer-motion": "^5.6.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
+    "@chakra-ui/storybook-addon": "^1.0.2",
     "@storybook/addon-actions": "^6.4.14",
     "@storybook/addon-essentials": "^6.4.14",
     "@storybook/addon-links": "^6.4.14",
