@@ -4,18 +4,16 @@ Run `npm start` to start the Storybook development server.
 
 ## Usage
 
-NOTE: THIS IS IN PROGRESS
+NOTE: IN PROGRESS
 
-Run `npm install rari-components`. The modules are not transpiled. To transpile them with Next.js, add a `webpack` entry to your `next.config.js`:
+Run `npm install rari-components`. The modules are not transpiled. To transpile them with Next.js, add or edit the `webpack` entry in your `next.config.js`:
 
 ```js
-// Example config for adding a loader that depends on babel-loader
-// This source was taken from the @next/mdx plugin source:
-// https://github.com/vercel/next.js/tree/canary/packages/next-mdx
 module.exports = {
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.ts/,
+      // Transpile rari-components, even though it is in node_modules
       include: [/node_modules\/rari-components/],
       use: "next-babel-loader",
     });
