@@ -10,6 +10,7 @@ const theme = extendTheme({
     neutral: "#6C69E9",
     darkgray: "#3E3E3E",
     lightgray: "#909090",
+    matte: "#15171A",
   },
   components: {
     Button: {

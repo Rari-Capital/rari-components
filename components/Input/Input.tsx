@@ -1,7 +1,10 @@
-import { Input as ChakraInput } from "@chakra-ui/react";
+import {
+  Input as ChakraInput,
+  InputProps as ChakraInputProps,
+} from "@chakra-ui/react";
 import React from "react";
 
-const Input: React.FC<React.ComponentProps<typeof ChakraInput>> = (props) => {
+const Input: React.FC<ChakraInputProps> = (props) => {
   return <ChakraInput {...props} />;
 };
 
