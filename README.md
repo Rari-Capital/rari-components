@@ -4,16 +4,16 @@ Run `npm start` to start the Storybook development server.
 
 ## Usage
 
-NOTE: IN PROGRESS
+Run `npm install github:Rari-Capital/rari-components#[tag or commit hash]` to install the component library off of GitHub.
 
-Run `npm install rari-components`. The modules are not transpiled. To transpile them with Next.js, add or edit the `webpack` entry in your `next.config.js`:
+Note that the modules are not transpiled. To transpile them with Next.js, add or edit the `webpack` entry in your `next.config.js`:
 
 ```js
 module.exports = {
   webpack: (config, options) => {
+    // Transpile rari-components, even though it is in node_modules
     config.module.rules.push({
       test: /\.tsx?/,
-      // Transpile rari-components, even though it is in node_modules
       include: [/node_modules\/rari-components/],
       use: "next-swc-loader",
     });
