@@ -12,10 +12,10 @@ Run `npm install rari-components`. The modules are not transpiled. To transpile 
 module.exports = {
   webpack: (config, options) => {
     config.module.rules.push({
-      test: /\.ts/,
+      test: /\.tsx?/,
       // Transpile rari-components, even though it is in node_modules
       include: [/node_modules\/rari-components/],
-      use: "next-babel-loader",
+      use: "next-swc-loader",
     });
 
     return config;
