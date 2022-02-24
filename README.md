@@ -6,6 +6,24 @@ Run `npm start` to start the Storybook development server.
 
 Run `npm install github:Rari-Capital/rari-components#[tag or commit hash]` to install the component library off of GitHub.
 
+Then, import fonts:
+
+```ts
+import "rari-components/assets/fonts/avenir-next/avenir.css";
+```
+
+and set up theme:
+
+```tsx
+import theme from "rari-components/theme";
+
+// ...
+
+function App({ Component, pageProps }: AppProps) {
+  return <ChakraProvider theme={theme}>{/* ... */}</ChakraProvider>;
+}
+```
+
 Note that the modules are not transpiled. To transpile them with Next.js, add or edit the `webpack` entry in your `next.config.js`:
 
 ```js
