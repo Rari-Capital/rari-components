@@ -34,3 +34,9 @@ export const Default = Template.bind({});
 Default.args = {
   children: "Card",
 };
+
+export const Light = Template.bind({});
+Light.args = {
+  children: "Light Card",
+  variant: "light",
+};

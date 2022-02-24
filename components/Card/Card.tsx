@@ -1,9 +1,13 @@
-import { Box, BoxProps } from "@chakra-ui/react";
+import { Box, BoxProps, useStyleConfig } from "@chakra-ui/react";
 
-const Card: React.FC<BoxProps> = (props) => {
-  return (
-    <Box backgroundColor="matte" borderRadius="md" padding={6} {...props} />
-  );
+type CardProps = BoxProps & {
+  variant: string;
+};
+
+const Card: React.FC<CardProps> = ({ variant, ...restProps }) => {
+  const styles = useStyleConfig("Card", { variant });
+
+  return <Box __css={styles} borderRadius="md" padding={6} {...restProps} />;
 };
 
 export default Card;

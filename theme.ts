@@ -8,9 +8,12 @@ const theme = extendTheme({
   colors: {
     positive: "#4CD791",
     neutral: "#6C69E9",
+    // Used for text/foreground elements
     darkgray: "#3E3E3E",
     lightgray: "#909090",
-    matte: "#15171A",
+    // Used for backgrounds
+    darkmatte: "#15171A",
+    lightmatte: "#F0F0F0",
   },
   components: {
     Button: {
@@ -21,6 +24,18 @@ const theme = extendTheme({
       variants: {
         neutral: {
           backgroundColor: "neutral",
+        },
+      },
+    },
+    Card: {
+      baseStyle: {
+        color: "white",
+        backgroundColor: "darkmatte",
+      },
+      variants: {
+        light: {
+          color: "black",
+          backgroundColor: "lightmatte",
         },
       },
     },
