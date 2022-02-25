@@ -14,7 +14,7 @@ const theme = extendTheme({
     // Used for cards
     cardmatte: "#303030",
     // Used for backgrounds
-    darkmatte: "#15171A",
+    darkmatte: "#202020",
     lightmatte: "#F0F0F0",
   },
   components: {
