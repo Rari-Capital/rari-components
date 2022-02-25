@@ -3,11 +3,11 @@ import theme from "../theme.ts";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   backgrounds: {
-    default: "black",
+    default: "darkmatte",
     values: [
       {
-        name: "black",
-        value: "#000000",
+        name: "darkmatte",
+        value: "#202020",
       },
     ],
   },
