@@ -1,6 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
+import Statistic from "../Statistic/Statistic";
 import Card from "./Card";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -39,4 +40,9 @@ export const Light = Template.bind({});
 Light.args = {
   children: "Light Card",
   variant: "light",
+};
+
+export const WithStatistic = Template.bind({});
+WithStatistic.args = {
+  children: <Statistic title="A statistic" value="over 9000" />,
 };
