@@ -17,7 +17,7 @@ const theme = extendTheme({
     cardmatte: "#303030",
     activematte: "#EFF5FF",
     // Used for backgrounds
-    darkmatte: "#202020",
+    darkmatte: "#101010",
     lightmatte: "#F0F0F0",
     // Used for borders
     activeborder: "#3683F6",
