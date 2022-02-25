@@ -11,8 +11,10 @@ const theme = extendTheme({
     // Used for text/foreground elements
     darkgray: "#3E3E3E",
     lightgray: "#909090",
+    // Used for cards
+    cardmatte: "#303030",
     // Used for backgrounds
-    darkmatte: "#303030",
+    darkmatte: "#15171A",
     lightmatte: "#F0F0F0",
   },
   components: {
@@ -30,7 +32,7 @@ const theme = extendTheme({
     Card: {
       baseStyle: {
         color: "white",
-        backgroundColor: "darkmatte",
+        backgroundColor: "cardmatte",
       },
       variants: {
         light: {
