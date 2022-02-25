@@ -4,7 +4,7 @@ Run `npm start` to start the Storybook development server.
 
 ## Usage
 
-Run `npm install github:Rari-Capital/rari-components#[tag or commit hash]` to install the component library off of GitHub.
+Run `npm install git+https://github.com/Rari-Capital/rari-components#[tag or commit hash]` to install the component library off of GitHub.
 
 Then, import fonts:
 
