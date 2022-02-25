@@ -12,7 +12,7 @@ const theme = extendTheme({
     darkgray: "#3E3E3E",
     lightgray: "#909090",
     // Used for backgrounds
-    darkmatte: "#15171A",
+    darkmatte: "#303030",
     lightmatte: "#F0F0F0",
   },
   components: {
