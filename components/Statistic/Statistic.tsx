@@ -20,7 +20,9 @@ const Statistic: React.FC<StatisticProps> = ({
       <Text fontSize="sm" mb={2} color="lightgray">
         {title}
       </Text>
-      <Heading size="lg">{value}</Heading>
+      <Heading size="lg" mr={4}>
+        {value}
+      </Heading>
     </Box>
   );
 };
