@@ -1,7 +1,7 @@
 import { AvatarGroup, AvatarGroupProps } from "@chakra-ui/avatar";
 import TokenIcon from "../TokenIcon/TokenIcon";
 
-type TokenGroupProps = AvatarGroupProps & {
+type TokenGroupProps = Omit<AvatarGroupProps, "children"> & {
   addresses: string[];
 };
 
