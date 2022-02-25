@@ -13,9 +13,12 @@ const theme = extendTheme({
     lightgray: "#909090",
     // Used for cards
     cardmatte: "#303030",
+    activematte: "#EFF5FF",
     // Used for backgrounds
     darkmatte: "#202020",
     lightmatte: "#F0F0F0",
+    // Used for borders
+    activeborder: "#3683F6",
   },
   components: {
     Button: {
@@ -38,6 +41,12 @@ const theme = extendTheme({
         light: {
           color: "black",
           backgroundColor: "lightmatte",
+        },
+        active: {
+          color: "black",
+          borderColor: "activeborder",
+          borderWidth: "1px",
+          backgroundColor: "activematte",
         },
       },
     },

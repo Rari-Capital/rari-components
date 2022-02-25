@@ -46,3 +46,9 @@ export const WithStatistic = Template.bind({});
 WithStatistic.args = {
   children: <Statistic title="A statistic" value="over 9000" />,
 };
+
+export const Active = Template.bind({});
+Active.args = {
+  children: "Active Card",
+  variant: "active",
+};
