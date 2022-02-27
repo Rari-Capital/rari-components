@@ -45,7 +45,7 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         top="calc(50% - 15px)"
         right={12}
         backgroundColor={backgroundColor}
-        width={40}
+        width={52}
         justifyContent="flex-end"
       >
         <TokenIcon size="xs" tokenAddress={tokenAddress} mr={2} />
