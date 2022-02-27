@@ -9,7 +9,7 @@ export default {
   component: TokenIcon,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    address: {
+    tokenAddress: {
       type: { name: "string", required: true },
     },
   },
@@ -22,15 +22,15 @@ const Template: ComponentStory<typeof TokenIcon> = (args) => (
 
 export const UsdCoin = Template.bind({});
 UsdCoin.args = {
-  address: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+  tokenAddress: "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
 };
 
 export const FeiUsd = Template.bind({});
 FeiUsd.args = {
-  address: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
+  tokenAddress: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
 };
 
 export const Tribe = Template.bind({});
 Tribe.args = {
-  address: "0xc7283b66eb1eb5fb86327f08e1b5816b0720212b",
+  tokenAddress: "0xc7283b66eb1eb5fb86327f08e1b5816b0720212b",
 };

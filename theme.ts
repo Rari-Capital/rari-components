@@ -8,7 +8,8 @@ const theme = extendTheme({
     body: "Avenir Next",
   },
   colors: {
-    positive: "#4CD791",
+    primary: "#3687FF",
+    success: "#4CD791",
     neutral: "#6C69E9",
     // Used for text/foreground elements
     darkgray: "#3E3E3E",
@@ -27,7 +28,13 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         color: "white",
-        backgroundColor: "positive",
+        backgroundColor: "primary",
+        _focus: {
+          boxShadow: "none",
+        },
+        _hover: {
+          opacity: 0.75,
+        },
       },
       variants: {
         neutral: {
@@ -64,6 +71,7 @@ const theme = extendTheme({
         light: {
           field: {
             color: "black",
+            backgroundColor: "white",
             borderColor: "transparent",
             _hover: {
               borderColor: "lightgray",
@@ -71,11 +79,16 @@ const theme = extendTheme({
             _focus: {
               borderColor: "lightgray",
             },
+            _placeholder: {
+              color: "gray",
+            },
           },
         },
         outline: {
           field: {
+            color: "white",
             borderColor: "darkgray",
+            backgroundColor: "darkmatte",
             _hover: {
               borderColor: "gray",
             },
