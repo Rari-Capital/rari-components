@@ -16,7 +16,7 @@ const Statistic: React.FC<StatisticProps> = ({
   ...restProps
 }) => {
   return (
-    <Box mr={4} {...restProps}>
+    <Box mr={4} textAlign="left" {...restProps}>
       <Text fontSize="sm" mb={2} color="lightgray">
         {title}
       </Text>
