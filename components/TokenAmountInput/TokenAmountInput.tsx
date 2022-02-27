@@ -18,7 +18,6 @@ type TokenAmountInputProps = InputGroupProps & {
 
 const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
   onClickMax,
-  placeholder,
   tokenSymbol,
   tokenAddress,
   variant,
@@ -35,7 +34,7 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
 
   return (
     <InputGroup {...restProps}>
-      <Input type="number" placeholder={placeholder} variant={variant} />
+      <Input type="number" placeholder="0.0" variant={variant} />
       <InputRightElement
         // We want to make the background of the token solid so we can't see the
         // numbers through it, but we don't want the background to cover the
