@@ -22,20 +22,24 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 export const Small = Template.bind({});
 Small.args = {
   placeholder: "Small Input",
-  value: "Small Input",
   size: "sm",
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
   placeholder: "Medium Input",
-  value: "Medium Input",
   size: "md",
 };
 
 export const Large = Template.bind({});
 Large.args = {
   placeholder: "Large Input",
-  value: "Large Input",
   size: "lg",
+};
+
+export const Light = Template.bind({});
+Light.args = {
+  placeholder: "Light Input",
+  size: "md",
+  variant: "light",
 };

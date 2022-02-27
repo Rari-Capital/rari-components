@@ -12,7 +12,8 @@ const theme = extendTheme({
     neutral: "#6C69E9",
     // Used for text/foreground elements
     darkgray: "#3E3E3E",
-    lightgray: "#909090",
+    gray: "#909090",
+    lightgray: "#E0E0E0",
     // Used for cards
     cardmatte: "#303030",
     activematte: "#EFF5FF",
@@ -53,16 +54,33 @@ const theme = extendTheme({
       },
     },
     Input: {
+      baseStyle: {
+        field: {
+          fontWeight: 600,
+          borderWidth: 1,
+        },
+      },
       variants: {
-        outline: {
+        light: {
           field: {
-            fontWeight: "bold",
-            borderColor: "darkgray",
+            color: "black",
+            borderColor: "transparent",
             _hover: {
               borderColor: "lightgray",
             },
             _focus: {
               borderColor: "lightgray",
+            },
+          },
+        },
+        outline: {
+          field: {
+            borderColor: "darkgray",
+            _hover: {
+              borderColor: "gray",
+            },
+            _focus: {
+              borderColor: "gray",
               boxShadow: "none",
             },
           },

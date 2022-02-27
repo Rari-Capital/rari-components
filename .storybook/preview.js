@@ -9,6 +9,10 @@ export const parameters = {
         name: "darkmatte",
         value: "#202020",
       },
+      {
+        name: "lightmatte",
+        value: "#F0F0F0",
+      },
     ],
   },
   controls: {
