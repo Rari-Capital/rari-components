@@ -9,7 +9,7 @@ const TokenGroup: React.FC<TokenGroupProps> = ({ addresses, ...restProps }) => {
   return (
     <AvatarGroup {...restProps}>
       {addresses.map((address) => (
-        <TokenIcon key={address} address={address} />
+        <TokenIcon key={address} tokenAddress={address} />
       ))}
     </AvatarGroup>
   );
