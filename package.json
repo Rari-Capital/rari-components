@@ -9,6 +9,7 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": "1.x",
+    "@chakra-ui/icons": "1.x",
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "ethers": "5.x",
