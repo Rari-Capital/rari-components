@@ -10,26 +10,38 @@ import {
   IconButton,
   useStyleConfig,
 } from "@chakra-ui/react";
+import { Fragment } from "react";
 
 import Card from "../Card/Card";
 
 type ExpandableCardProps = React.ComponentProps<typeof Card> & {
   expandableChildren: React.ReactNode;
+  /**
+   * Whether this card is wrapped by a Chakra `<Accordion />` (`true`) or is
+   * standalone (`false`).
+   */
+  inAccordion?: boolean;
 };
 
 /**
- * A card component which can be expanded to reveal more content.
+ * A card component which can be expanded to reveal more content. Based on
+ * Chakra's `Accordion` component.
  */
 const ExpandableCard: React.FC<ExpandableCardProps> = ({
   children,
   expandableChildren,
   variant,
+  inAccordion,
   ...restProps
 }) => {
   const { color } = useStyleConfig("Card", { variant }) as { color: string };
 
+  const Wrapper: React.FC = inAccordion
+    ? Fragment
+    : (props) => <Accordion allowToggle {...props} />;
+
   return (
-    <Accordion allowToggle>
+    <Wrapper>
       <AccordionItem borderY="none">
         {({ isExpanded }) => (
           <Card variant={variant} {...restProps}>
@@ -74,7 +86,7 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
           </Card>
         )}
       </AccordionItem>
-    </Accordion>
+    </Wrapper>
   );
 };
 
