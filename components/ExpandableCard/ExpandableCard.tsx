@@ -38,7 +38,8 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
 
   const Wrapper: React.FC = inAccordion
     ? Fragment
-    : (props) => <Accordion allowToggle {...props} />;
+    : // If standalone, wrap in a default `Accordion`
+      (props) => <Accordion allowToggle {...props} />;
 
   return (
     <Wrapper>
