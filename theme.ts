@@ -11,6 +11,7 @@ const theme = extendTheme({
     primary: "#3687FF",
     success: "#4CD791",
     neutral: "#6C69E9",
+    warning: "#FFBE5E",
     // Used for text/foreground elements
     darkgray: "#3E3E3E",
     gray: "#909090",
@@ -57,6 +58,15 @@ const theme = extendTheme({
           borderColor: "activeborder",
           borderWidth: "1px",
           backgroundColor: "activematte",
+        },
+      },
+    },
+    Heading: {
+      variants: {
+        gradient: {
+          background: "linear-gradient(87.87deg, #9C39FF 5%, #366EFF 95%)",
+          backgroundClip: "text",
+          textFillColor: "transparent",
         },
       },
     },
@@ -114,6 +124,11 @@ const theme = extendTheme({
       variants: {
         secondary: {
           opacity: 0.5,
+        },
+        gradient: {
+          background: "linear-gradient(87.87deg, #9C39FF 5%, #366EFF 95%)",
+          backgroundClip: "text",
+          textFillColor: "transparent",
         },
       },
     },

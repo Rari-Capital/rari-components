@@ -1,3 +1,4 @@
+import Badge from "./components/Badge/Badge";
 import Button from "./components/Button/Button";
 import Card from "./components/Card/Card";
 import ExpandableCard from "./components/ExpandableCard/ExpandableCard";
@@ -11,6 +12,7 @@ import TokenIcon from "./components/TokenIcon/TokenIcon";
 import TokenGroup from "./components/TokenGroup/TokenGroup";
 
 export {
+  Badge,
   Button,
   Card,
   ExpandableCard,

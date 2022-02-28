@@ -44,3 +44,24 @@ ExtraLarge.args = {
   children: "Extra Large Heading",
   size: "xl",
 };
+
+export const Warning = Template.bind({});
+Warning.args = {
+  children: "Warning Heading",
+  variant: "warning",
+  size: "md",
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  children: "Success Heading",
+  variant: "success",
+  size: "md",
+};
+
+export const Gradient = Template.bind({});
+Gradient.args = {
+  children: "Gradient Heading",
+  variant: "gradient",
+  size: "md",
+};

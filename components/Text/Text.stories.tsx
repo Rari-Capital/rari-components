@@ -60,3 +60,17 @@ Secondary.args = {
   variant: "secondary",
   fontSize: "md",
 };
+
+export const Warning = Template.bind({});
+Warning.args = {
+  children: "Warning Text",
+  variant: "warning",
+  fontSize: "md",
+};
+
+export const Gradient = Template.bind({});
+Gradient.args = {
+  children: "Gradient Text",
+  variant: "gradient",
+  fontSize: "md",
+};
