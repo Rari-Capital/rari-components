@@ -17,6 +17,9 @@ type ExpandableCardProps = React.ComponentProps<typeof Card> & {
   expandableChildren: React.ReactNode;
 };
 
+/**
+ * A card component which can be expanded to reveal more content.
+ */
 const ExpandableCard: React.FC<ExpandableCardProps> = ({
   children,
   expandableChildren,

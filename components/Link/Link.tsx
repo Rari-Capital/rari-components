@@ -8,6 +8,10 @@ type LinkProps = ChakraLinkProps & {
   href: React.ComponentProps<typeof NextLink>["href"];
 };
 
+/**
+ * A Link component which supports Next.js links out of the box for use in
+ * any Next.js-based Rari dapp.
+ */
 const Link: React.FC<LinkProps> = ({ href, ...restProps }) => {
   // See https://chakra-ui.com/docs/navigation/link#usage-with-nextjs for more
   // info

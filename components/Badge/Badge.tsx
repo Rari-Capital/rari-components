@@ -6,6 +6,9 @@ import {
 
 type BadgeProps = ChakraBadgeProps;
 
+/**
+ * A badge component which can highlight another component.
+ */
 const Badge: React.FC<BadgeProps> = ({ variant, children, ...restProps }) => {
   return (
     <ChakraBadge

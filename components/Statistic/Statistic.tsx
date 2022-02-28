@@ -9,7 +9,8 @@ type StatisticProps = BoxProps & {
 };
 
 /**
- * Displays a statistic's title and value
+ * A component which displays a statistic's title (smaller text) and value
+ * (larger text).
  */
 const Statistic: React.FC<StatisticProps> = ({
   title,

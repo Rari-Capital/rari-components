@@ -16,6 +16,11 @@ type TokenAmountInputProps = InputGroupProps & {
   tokenAddress: string;
 };
 
+/**
+ * An augmented input component for inputting token amounts. Shows the token
+ * symbol and logo as well as a "Max" button users can use to input the
+ * maximum amount in their wallet.
+ */
 const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
   onClickMax,
   tokenSymbol,
@@ -34,7 +39,7 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
 
   return (
     <InputGroup {...restProps}>
-      <Input type="number" placeholder="0.0" variant={variant} />
+      <Input type="number" placeholder="0.0" min={0} variant={variant} />
       <InputRightElement
         // We want to make the background of the token solid so we can't see the
         // numbers through it, but we don't want the background to cover the

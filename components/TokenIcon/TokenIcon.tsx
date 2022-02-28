@@ -5,6 +5,10 @@ type TokenIconProps = AvatarProps & {
   tokenAddress: string;
 };
 
+/**
+ * A component that displays a token's icon from its address. Uses the
+ * `trustwallet/assets` repository and jsdelivr.net CDN internally.
+ */
 const TokenIcon: React.FC<TokenIconProps> = ({
   tokenAddress,
   ...restProps

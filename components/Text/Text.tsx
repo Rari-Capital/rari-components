@@ -5,6 +5,10 @@ import {
 
 type TextProps = ChakraTextProps;
 
+/**
+ * A basic text component which supports contextual colors (e.g.
+ * `variant="success"`) and gradient text (`variant="gradient"`).
+ */
 const Text: React.FC<TextProps> = ({ variant, ...restProps }) => {
   // If `variant` is not "gradient" or "secondary", it refers to a color.
   // Otherwise, pass through the variant so Chakra can style it.
