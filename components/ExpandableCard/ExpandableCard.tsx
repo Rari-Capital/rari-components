@@ -45,7 +45,7 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
                 justifyContent="space-between"
                 width="100%"
               >
-                <Box flex={1} alignItems="flex-start">
+                <Box flex={1} textAlign="left">
                   {children}
                 </Box>
                 <IconButton
