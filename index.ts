@@ -6,6 +6,7 @@ import Heading from "./components/Heading/Heading";
 import Input from "./components/Input/Input";
 import Link from "./components/Link/Link";
 import Statistic from "./components/Statistic/Statistic";
+import StatisticTable from "./components/StatisticTable/StatisticTable";
 import Text from "./components/Text/Text";
 import TokenAmountInput from "./components/TokenAmountInput/TokenAmountInput";
 import TokenIcon from "./components/TokenIcon/TokenIcon";
@@ -20,6 +21,7 @@ export {
   Input,
   Link,
   Statistic,
+  StatisticTable,
   Text,
   TokenAmountInput,
   TokenIcon,

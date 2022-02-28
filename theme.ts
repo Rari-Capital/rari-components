@@ -46,11 +46,16 @@ const theme = extendTheme({
     Card: {
       baseStyle: {
         color: "white",
+        // Even though `Card` has a default border width of 0, some components
+        // which use `Card` internally (e.g. `StatisticTable`) rely on the
+        // border-color being set.
+        borderColor: "darkgray",
         backgroundColor: "cardmatte",
       },
       variants: {
         light: {
           color: "black",
+          borderColor: "lightgray",
           backgroundColor: "lightmatte",
         },
         active: {
