@@ -100,6 +100,23 @@ const theme = extendTheme({
         },
       },
     },
+    Statistic: {
+      baseStyle: {
+        color: "white",
+      },
+      variants: {
+        dark: {
+          color: "black",
+        },
+      },
+    },
+    Text: {
+      variants: {
+        secondary: {
+          opacity: 0.5,
+        },
+      },
+    },
     // https://github.com/chakra-ui/chakra-ui/issues/2347#issuecomment-917375118
     defaultProps: {
       variant: "outline",

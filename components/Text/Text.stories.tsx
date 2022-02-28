@@ -53,3 +53,10 @@ ExtraLarge.args = {
   children: "Extra Large Text",
   fontSize: "xl",
 };
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: "Secondary Text",
+  variant: "secondary",
+  fontSize: "md",
+};
