@@ -5,6 +5,7 @@ import ExpandableCard from "./components/ExpandableCard/ExpandableCard";
 import Heading from "./components/Heading/Heading";
 import Input from "./components/Input/Input";
 import Link from "./components/Link/Link";
+import Progress from "./components/Progress/Progress";
 import Statistic from "./components/Statistic/Statistic";
 import StatisticTable from "./components/StatisticTable/StatisticTable";
 import Text from "./components/Text/Text";
@@ -20,6 +21,7 @@ export {
   Heading,
   Input,
   Link,
+  Progress,
   Statistic,
   StatisticTable,
   Text,

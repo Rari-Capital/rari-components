@@ -19,9 +19,9 @@ const theme = extendTheme({
     // Used for cards
     cardmatte: "#303030",
     activematte: "#EFF5FF",
-    // Used for backgrounds
-    darkmatte: "#101010",
     lightmatte: "#F0F0F0",
+    // Used for background
+    darkmatte: "#101010",
     // Used for borders
     activeborder: "#3683F6",
   },
@@ -111,6 +111,20 @@ const theme = extendTheme({
               borderColor: "gray",
               boxShadow: "none",
             },
+          },
+        },
+      },
+    },
+    Progress: {
+      baseStyle: {
+        track: {
+          background: "cardmatte",
+        },
+      },
+      variants: {
+        light: {
+          track: {
+            background: "lightmatte",
           },
         },
       },
