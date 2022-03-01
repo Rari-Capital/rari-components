@@ -8,8 +8,8 @@ type ProgressProps = Omit<ChakraProgressProps, "colorScheme"> & {
 };
 
 /**
- * A basic text Progress component which supports contextual colors (e.g.
- * `barVariant="success"`) and gradient text (`barVariant="gradient"`).
+ * A basic progress bar component which supports contextual (e.g.
+ * `barVariant="success"`) and gradient (`barVariant="gradient"`) bar colors.
  */
 const Progress: React.FC<ProgressProps> = ({
   variant,
