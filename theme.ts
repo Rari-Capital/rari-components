@@ -139,6 +139,29 @@ const theme = extendTheme({
         },
       },
     },
+    Tabs: {
+      baseStyle: {
+        tab: {
+          borderRadius: "lg",
+          fontWeight: 600,
+          bg: "primary",
+          opacity: 0.5,
+          minWidth: 48,
+          mr: 4,
+          _focus: {
+            boxShadow: "none",
+          },
+          _selected: {
+            bg: "primary",
+            opacity: 1,
+          },
+        },
+      },
+      defaultProps: {
+        // Nonexistent variant to clear other base styles
+        variant: "default",
+      },
+    },
     Text: {
       variants: {
         secondary: {
