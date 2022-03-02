@@ -144,6 +144,7 @@ const theme = extendTheme({
         tab: {
           borderRadius: "lg",
           fontWeight: 600,
+          color: "white",
           bg: "primary",
           opacity: 0.5,
           minWidth: 48,
@@ -155,6 +156,9 @@ const theme = extendTheme({
             bg: "primary",
             opacity: 1,
           },
+        },
+        tabpanel: {
+          paddingX: 0,
         },
       },
       defaultProps: {
