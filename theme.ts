@@ -120,11 +120,17 @@ const theme = extendTheme({
         track: {
           background: "cardmatte",
         },
+        label: {
+          color: "white",
+        },
       },
       variants: {
         light: {
           track: {
             background: "lightmatte",
+          },
+          label: {
+            color: "black",
           },
         },
       },

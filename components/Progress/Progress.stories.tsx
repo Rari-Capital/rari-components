@@ -21,11 +21,24 @@ const Template: ComponentStory<typeof Progress> = (args) => (
   <Progress {...args} />
 );
 
+export const LowValueLightWarning = Template.bind({});
+LowValueLightWarning.args = {
+  variant: "light",
+  barVariant: "warning",
+  value: 10,
+};
+
 export const LightWarning = Template.bind({});
 LightWarning.args = {
   variant: "light",
   barVariant: "warning",
   value: 80,
+};
+
+export const LowValueDarkSuccess = Template.bind({});
+LowValueDarkSuccess.args = {
+  barVariant: "success",
+  value: 20,
 };
 
 export const DarkSuccess = Template.bind({});
@@ -39,4 +52,12 @@ LightGradient.args = {
   variant: "light",
   barVariant: "gradient",
   value: 80,
+};
+
+export const LabelHiddenGradient = Template.bind({});
+LabelHiddenGradient.args = {
+  variant: "light",
+  barVariant: "gradient",
+  value: 80,
+  hideLabel: true,
 };
