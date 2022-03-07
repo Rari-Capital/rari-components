@@ -8,6 +8,7 @@ import Link from "./components/Link/Link";
 import Progress from "./components/Progress/Progress";
 import Statistic from "./components/Statistic/Statistic";
 import StatisticTable from "./components/StatisticTable/StatisticTable";
+import StepBubbles from "./components/StepBubbles/StepBubbles";
 import Tabs from "./components/Tabs/Tabs";
 import Text from "./components/Text/Text";
 import TokenAmountInput from "./components/TokenAmountInput/TokenAmountInput";
@@ -25,6 +26,7 @@ export {
   Progress,
   Statistic,
   StatisticTable,
+  StepBubbles,
   Tabs,
   Text,
   TokenAmountInput,
