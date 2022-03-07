@@ -69,7 +69,7 @@ const Progress: React.FC<ProgressProps> = ({
           pr={4}
         >
           <Text fontWeight={600} color={lowValue ? color : "white"}>
-            {value}%
+            {value.toFixed(2)}%
           </Text>
         </Flex>
       )}
