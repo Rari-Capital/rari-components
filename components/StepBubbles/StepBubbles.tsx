@@ -13,14 +13,14 @@ type StepBubbleProps = {
   /**
    * Whether the bubble should show a spinner if its active.
    */
-  spinner?: boolean;
+  loading?: boolean;
   /**
    * If true represented step was completed.
    */
    complete: boolean;
 };
 
-const StepBubble: React.FC<StepBubbleProps> = ({ children, active, last, spinner, complete }) => {
+const StepBubble: React.FC<StepBubbleProps> = ({ children, active, last, loading, complete }) => {
   return (
     <Center>
       <Center
@@ -30,7 +30,7 @@ const StepBubble: React.FC<StepBubbleProps> = ({ children, active, last, spinner
         borderRadius="50%"
         opacity={active ? 1 : 0.5}
       >
-        {active && spinner ? <Spinner/> : children}
+        {active && loading ? <Spinner/> : children}
       </Center>
       {!last && <Box width={12} height="1px" background="primary" />}
     </Center>
@@ -47,6 +47,10 @@ type StepBubblesProps = {
    * etc.).
    */
   activeIndex: number;
+  /**
+   * Whether bubble should show a loading state when active.
+   */
+  loading?: boolean;
 };
 
 /**
@@ -54,11 +58,11 @@ type StepBubblesProps = {
  * connected by a line, with a single circle highlighted denoting an active
  * step.
  */
-const StepBubbles: React.FC<StepBubblesProps> = ({ steps, activeIndex }) => {
+const StepBubbles: React.FC<StepBubblesProps> = ({ steps, activeIndex, loading }) => {
   return (
     <Flex>
       {Array.from({ length: steps }).map((_, i) => (
-        <StepBubble key={i} complete={i < activeIndex}  active={i === activeIndex} last={i === steps - 1} >
+        <StepBubble key={i} complete={i < activeIndex} loading={loading}  active={i === activeIndex} last={i === steps - 1} >
           <Text fontWeight={600}>{i + 1}</Text>
         </StepBubble>
       ))}
