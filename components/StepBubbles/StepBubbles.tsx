@@ -1,4 +1,4 @@
-import { Box, Center, Flex } from "@chakra-ui/react";
+import { Box, Center, Flex, Spinner } from "@chakra-ui/react";
 import Text from "../Text/Text";
 
 type StepBubbleProps = {
@@ -10,9 +10,13 @@ type StepBubbleProps = {
    * Whether this bubble is the last in line and should not have a connector.
    */
   last?: boolean;
+  /**
+   * Whether the bubble should show a spinner if its active.
+   */
+  spinner?: boolean;
 };
 
-const StepBubble: React.FC<StepBubbleProps> = ({ children, active, last }) => {
+const StepBubble: React.FC<StepBubbleProps> = ({ children, active, last, spinner }) => {
   return (
     <Center>
       <Center
@@ -22,7 +26,7 @@ const StepBubble: React.FC<StepBubbleProps> = ({ children, active, last }) => {
         borderRadius="50%"
         opacity={active ? 1 : 0.5}
       >
-        {children}
+        {active && spinner ? <Spinner/> : children}
       </Center>
       {!last && <Box width={12} height="1px" background="primary" />}
     </Center>
