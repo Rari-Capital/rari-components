@@ -51,3 +51,11 @@ Light.args = {
   tokenSymbol: "FEI",
   tokenAddress: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
 };
+
+export const LongTokenSymbol = Template.bind({});
+LongTokenSymbol.args = {
+  size: "md",
+  variant: "light",
+  tokenSymbol: "CRVtricrypto2",
+  tokenAddress: "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+};
