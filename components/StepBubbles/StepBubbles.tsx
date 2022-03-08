@@ -11,28 +11,29 @@ type StepBubbleProps = {
    */
   last?: boolean;
   /**
-   * Whether the bubble should show a spinner if its active.
+   * The background color for the bubble.
    */
-  loading?: boolean;
-  /**
-   * If true represented step was completed.
-   */
-   complete: boolean;
+  background: string;
 };
 
-const StepBubble: React.FC<StepBubbleProps> = ({ children, active, last, loading, complete }) => {
+const StepBubble: React.FC<StepBubbleProps> = ({
+  children,
+  active,
+  last,
+  background,
+}) => {
   return (
     <Center>
       <Center
-        background={complete ? "gray" : "primary"}
+        background={background}
         height={12}
         width={12}
         borderRadius="50%"
         opacity={active ? 1 : 0.5}
       >
-        {active && loading ? <Spinner/> : children}
+        {children}
       </Center>
-      {!last && <Box width={12} height="1px" background="primary" />}
+      {!last && <Box width={12} height="1px" background={background} />}
     </Center>
   );
 };
@@ -48,7 +49,8 @@ type StepBubblesProps = {
    */
   activeIndex: number;
   /**
-   * Whether bubble should show a loading state when active.
+   * Whether to display a loading state (shows a spinner on the currently active
+   * step).
    */
   loading?: boolean;
 };
@@ -58,14 +60,32 @@ type StepBubblesProps = {
  * connected by a line, with a single circle highlighted denoting an active
  * step.
  */
-const StepBubbles: React.FC<StepBubblesProps> = ({ steps, activeIndex, loading }) => {
+const StepBubbles: React.FC<StepBubblesProps> = ({
+  steps,
+  activeIndex,
+  loading,
+}) => {
   return (
     <Flex>
-      {Array.from({ length: steps }).map((_, i) => (
-        <StepBubble key={i} complete={i < activeIndex} loading={loading}  active={i === activeIndex} last={i === steps - 1} >
-          <Text fontWeight={600}>{i + 1}</Text>
-        </StepBubble>
-      ))}
+      {Array.from({ length: steps }).map((_, i) => {
+        const active = i === activeIndex;
+
+        return (
+          <StepBubble
+            key={i}
+            // Show a gray background if the step was completed
+            background={i < activeIndex ? "gray" : "primary"}
+            active={active}
+            last={i === steps - 1}
+          >
+            {active && loading ? (
+              <Spinner />
+            ) : (
+              <Text fontWeight={600}>{i + 1}</Text>
+            )}
+          </StepBubble>
+        );
+      })}
     </Flex>
   );
 };

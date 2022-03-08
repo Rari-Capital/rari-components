@@ -19,7 +19,6 @@ type ProgressProps = Omit<ChakraProgressProps, "colorScheme"> & {
   hideLabel?: boolean;
 };
 
-
 /**
  * A basic progress bar component which supports contextual (e.g.
  * `barVariant="success"`) and gradient (`barVariant="gradient"`) bar colors.
