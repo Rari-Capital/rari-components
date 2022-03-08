@@ -14,13 +14,17 @@ type StepBubbleProps = {
    * Whether the bubble should show a spinner if its active.
    */
   spinner?: boolean;
+  /**
+   * If true represented step was completed.
+   */
+   complete: boolean;
 };
 
-const StepBubble: React.FC<StepBubbleProps> = ({ children, active, last, spinner }) => {
+const StepBubble: React.FC<StepBubbleProps> = ({ children, active, last, spinner, complete }) => {
   return (
     <Center>
       <Center
-        background="primary"
+        background={complete ? "gray" : "primary"}
         height={12}
         width={12}
         borderRadius="50%"
@@ -54,7 +58,7 @@ const StepBubbles: React.FC<StepBubblesProps> = ({ steps, activeIndex }) => {
   return (
     <Flex>
       {Array.from({ length: steps }).map((_, i) => (
-        <StepBubble key={i} active={i === activeIndex} last={i === steps - 1}>
+        <StepBubble key={i} complete={i < activeIndex}  active={i === activeIndex} last={i === steps - 1} >
           <Text fontWeight={600}>{i + 1}</Text>
         </StepBubble>
       ))}
