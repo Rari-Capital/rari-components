@@ -17,7 +17,12 @@ type ProgressProps = Omit<ChakraProgressProps, "colorScheme"> & {
    * Whether to hide the label showing the percent value indicated by the bar.
    */
   hideLabel?: boolean;
+  /**
+   * Bar height.
+   */
+  barHeight?: number | string
 };
+
 
 /**
  * A basic progress bar component which supports contextual (e.g.
@@ -28,6 +33,7 @@ const Progress: React.FC<ProgressProps> = ({
   barVariant,
   value = 0,
   hideLabel,
+  barHeight,
   ...restProps
 }) => {
   // If the value is low, show the percent text at the far right of the
@@ -48,7 +54,7 @@ const Progress: React.FC<ProgressProps> = ({
   return (
     <Box position="relative">
       <ChakraProgress
-        height={8}
+        height={barHeight ?? 8}
         borderRadius="xl"
         sx={{
           div: { background: barBackground },
