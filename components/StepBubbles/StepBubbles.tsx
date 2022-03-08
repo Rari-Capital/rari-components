@@ -81,7 +81,9 @@ const StepBubbles: React.FC<StepBubblesProps> = ({
             {active && loading ? (
               <Spinner />
             ) : (
-              <Text fontWeight={600}>{i + 1}</Text>
+              <Text fontWeight={600} color="white">
+                {i + 1}
+              </Text>
             )}
           </StepBubble>
         );

@@ -59,7 +59,7 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         // Center horizontally
         top="calc(50% - 15px)"
         right={12}
-        backgroundColor={backgroundColor}
+        background={`linear-gradient(to right, transparent, ${backgroundColor} 25%)`}
         width={52}
         justifyContent="flex-end"
       >
