@@ -10,7 +10,7 @@ import Input from "../Input/Input";
 import Text from "../Text/Text";
 import TokenIcon from "../TokenIcon/TokenIcon";
 
-type TokenAmountInputProps = InputGroupProps & {
+type TokenAmountInputProps = Omit<InputGroupProps, "value" | "onChange"> & {
   onClickMax(): void;
   tokenSymbol: string;
   tokenAddress: string;

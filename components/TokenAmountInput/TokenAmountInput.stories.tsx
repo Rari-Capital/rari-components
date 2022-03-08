@@ -28,6 +28,15 @@ Default.args = {
   tokenAddress: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
 };
 
+export const Controlled = Template.bind({});
+Controlled.args = {
+  size: "md",
+  tokenSymbol: "FEI",
+  tokenAddress: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
+  value: "10",
+  onChange: (newValue) => console.log(newValue),
+};
+
 export const Large = Template.bind({});
 Large.args = {
   size: "lg",
