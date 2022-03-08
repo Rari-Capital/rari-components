@@ -43,3 +43,10 @@ Light.args = {
   size: "md",
   variant: "light",
 };
+
+export const Controlled = Template.bind({});
+Controlled.args = {
+  size: "md",
+  value: "Hello",
+  onChange: (newValue) => console.log(newValue),
+};
