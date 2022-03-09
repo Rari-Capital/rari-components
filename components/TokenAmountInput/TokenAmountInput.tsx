@@ -50,6 +50,7 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         placeholder="0.0"
         min={0}
         variant={variant}
+        onWheel={(e) => e.currentTarget.blur()}
       />
       <InputRightElement
         // We want to make the background of the token solid so we can't see the
