@@ -50,6 +50,9 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         placeholder="0.0"
         min={0}
         variant={variant}
+        // Disable increment/decrement on scroll
+        // https://stackoverflow.com/questions/63224459/disable-scrolling-on-input-type-number-in-react
+        onWheel={(e) => e.currentTarget.blur()}
       />
       <InputRightElement
         // We want to make the background of the token solid so we can't see the
