@@ -30,18 +30,30 @@ const theme = extendTheme({
   components: {
     Button: {
       baseStyle: {
-        color: "white",
-        background: "primary",
         _focus: {
           boxShadow: "none",
         },
+        color: "white",
+        background: "primary",
+        // Need to override a default Chakra style for :hover:disabled
         _hover: {
+          _disabled: {
+            background: "primary",
+          },
+          opacity: 0.75,
+        },
+        _disabled: {
           opacity: 0.75,
         },
       },
       variants: {
         neutral: {
           background: "neutral",
+          _hover: {
+            _disabled: {
+              background: "neutral",
+            },
+          },
         },
       },
     },

@@ -43,3 +43,18 @@ NeutralMedium.args = {
   variant: "neutral",
   size: "md",
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: "Default Disabled Button",
+  size: "md",
+  disabled: true,
+};
+
+export const NeutralDisabled = Template.bind({});
+NeutralDisabled.args = {
+  children: "Neutral Disabled Button",
+  variant: "neutral",
+  size: "md",
+  disabled: true,
+};
