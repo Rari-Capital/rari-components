@@ -14,7 +14,9 @@ const theme = extendTheme({
     warning: "#FFBE5E",
     // Used for text/foreground elements
     darkgray: "#3E3E3E",
-    gray: "#909090",
+    // Avoid "gray" so we don't conflict with a default Chakra color
+    // See https://github.com/chakra-ui/chakra-ui/issues/5709
+    mediumgray: "#909090",
     lightgray: "#E0E0E0",
     // Used for cards
     cardmatte: "#303030",
@@ -95,7 +97,7 @@ const theme = extendTheme({
               borderColor: "lightgray",
             },
             _placeholder: {
-              color: "gray",
+              color: "mediumgray",
             },
           },
         },
@@ -105,10 +107,10 @@ const theme = extendTheme({
             borderColor: "darkgray",
             backgroundColor: "darkmatte",
             _hover: {
-              borderColor: "gray",
+              borderColor: "mediumgray",
             },
             _focus: {
-              borderColor: "gray",
+              borderColor: "mediumgray",
               boxShadow: "none",
             },
           },
