@@ -31,7 +31,7 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         color: "white",
-        backgroundColor: "primary",
+        background: "primary",
         _focus: {
           boxShadow: "none",
         },
@@ -41,7 +41,7 @@ const theme = extendTheme({
       },
       variants: {
         neutral: {
-          backgroundColor: "neutral",
+          background: "neutral",
         },
       },
     },
