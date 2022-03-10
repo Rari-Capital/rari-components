@@ -74,7 +74,7 @@ const StepBubbles: React.FC<StepBubblesProps> = ({
           <StepBubble
             key={i}
             // Show a gray background if the step was completed
-            background={i < activeIndex ? "gray" : "primary"}
+            background={i < activeIndex ? "mediumgray" : "primary"}
             active={active}
             last={i === steps - 1}
           >
