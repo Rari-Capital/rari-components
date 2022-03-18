@@ -15,6 +15,12 @@ import TokenAmountInput from "./components/TokenAmountInput/TokenAmountInput";
 import TokenIcon from "./components/TokenIcon/TokenIcon";
 import TokenGroup from "./components/TokenGroup/TokenGroup";
 
+/**
+ * Main entry point to the rari-components package. Typically, you will want
+ * to import components from here with
+ * `import { Badge, etc. } from "rari-components"`. Make sure the
+ * `<ChakraProvider />` has the `rari-components/theme` theme set.
+ */
 export {
   Badge,
   Button,

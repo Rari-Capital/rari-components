@@ -42,3 +42,9 @@ module.exports = {
 ```
 
 See https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config for more information.
+
+### Troubleshooting
+
+Sometimes, Next.js caches previous versions of the component library, since we are using commit hashes to version rather than `package.json` versions. If you install a new version of the component library but your Next.js app does not seem to reflect the latest changes, try running `rm -rf .next` to clear the Next cache and then restart the app.
+
+In production, a manual re-deploy on Vercel should force a build with no cache.

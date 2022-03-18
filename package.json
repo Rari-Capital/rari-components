@@ -2,6 +2,7 @@
   "name": "rari-components",
   "version": "0.0.1",
   "private": true,
+  "main": "index.ts",
   "scripts": {
     "start": "npm run storybook",
     "storybook": "start-storybook -p 6006",

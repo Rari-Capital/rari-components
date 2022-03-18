@@ -1,5 +1,8 @@
 import { extendTheme } from "@chakra-ui/react";
 
+/**
+ * Theme object to pass to `<ChakraProvider/>` to enable rari-component styles.
+ */
 const theme = extendTheme({
   initialColorMode: "dark",
   useSystemColorMode: false,
