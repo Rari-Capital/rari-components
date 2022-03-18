@@ -1,5 +1,4 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import { uniqueId } from "lodash";
 import React from "react";
 import * as Main from "./index";
 import theme from "./theme";
