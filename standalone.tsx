@@ -27,8 +27,9 @@ function withStandaloneTheme<Props>(
  * `rari-components/theme` theme set — each component will have its own
  * `<ChakraProvider />` with the correct theme pre-set. This entrypoint is
  * useful for incrementally adding components to an existing app without making
- * app-wide modifications to the theme, but prefer the main entrypoint at
- * `index.ts` for new apps.
+ * app-wide modifications to the theme, but for performance reasons, prefer the
+ * main entrypoint at 1index.ts` for new apps (wrapping each component in
+ * `<ChakraProvider />` can get expensive).
  */
 export const Badge = withStandaloneTheme(Main.Badge);
 export const Button = withStandaloneTheme(Main.Button);
