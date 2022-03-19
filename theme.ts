@@ -43,7 +43,7 @@ const components = {
       },
     },
     variants: {
-      /** Create button variants for all colors */
+      // Create button variants for all colors
       ...mapValues(colors, (_, key) => ({
         background: key,
         _hover: {
