@@ -44,6 +44,27 @@ NeutralMedium.args = {
   size: "md",
 };
 
+export const SuccessMedium = Template.bind({});
+SuccessMedium.args = {
+  children: "Success Medium Button",
+  variant: "success",
+  size: "md",
+};
+
+export const WarningMedium = Template.bind({});
+WarningMedium.args = {
+  children: "Warning Medium Button",
+  variant: "warning",
+  size: "md",
+};
+
+export const DarkCardStyleMedium = Template.bind({});
+DarkCardStyleMedium.args = {
+  children: "Dark Card Style Medium Button",
+  variant: "cardmatte",
+  size: "md",
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   children: "Default Disabled Button",

@@ -8,7 +8,7 @@ import React from "react";
  * A basic button component.
  */
 const Button: React.FC<ChakraButtonProps> = (props) => {
-  return <ChakraButton variant="default" {...props} />;
+  return <ChakraButton {...props} />;
 };
 
 export default Button;
