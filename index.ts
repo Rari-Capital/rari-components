@@ -1,6 +1,7 @@
 import Badge from "./components/Badge/Badge";
 import Button from "./components/Button/Button";
 import Card from "./components/Card/Card";
+import Divider from "./components/Divider/Divider";
 import ExpandableCard from "./components/ExpandableCard/ExpandableCard";
 import Heading from "./components/Heading/Heading";
 import Input from "./components/Input/Input";
@@ -25,6 +26,7 @@ export {
   Badge,
   Button,
   Card,
+  Divider,
   ExpandableCard,
   Heading,
   Input,

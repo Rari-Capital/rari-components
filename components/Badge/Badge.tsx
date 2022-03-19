@@ -13,8 +13,9 @@ const Badge: React.FC<BadgeProps> = ({ variant, children, ...restProps }) => {
   return (
     <ChakraBadge
       position="relative"
-      // The prop darkens the background without needing to know the original
-      // color
+      // Create an `::after` pseudo-element that overlays the background with
+      // a half-transparent black. This allows us to "darken" the background
+      // color without needing to know the original color.
       _after={{
         content: `''`,
         position: "absolute",

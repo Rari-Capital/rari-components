@@ -33,6 +33,7 @@ function withStandaloneTheme<Props>(
 export const Badge = withStandaloneTheme(Main.Badge);
 export const Button = withStandaloneTheme(Main.Button);
 export const Card = withStandaloneTheme(Main.Card);
+export const Divider = withStandaloneTheme(Main.Divider);
 export const ExpandableCard = withStandaloneTheme(Main.ExpandableCard);
 export const Heading = withStandaloneTheme(Main.Heading);
 export const Input = withStandaloneTheme(Main.Input);

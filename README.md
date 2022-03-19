@@ -43,7 +43,32 @@ module.exports = {
 
 See https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config for more information.
 
-### Troubleshooting
+Finally, begin importing components in your app:
+
+```tsx
+import { Card } from "rari-components";
+```
+
+### Standalone Usage
+
+If you don't want to conflict with an existing theme, consider the standalone export at `rari-components/standalone`:
+
+```tsx
+import { Card } from "rari-components/standalone";
+```
+
+If you use this entry point, you can skip setting up the `ChakraProvider` with the `rari-components/theme` theme. However, you still need to import the fonts and make changes to your `next.config.js`.
+
+## Adding New Components
+
+Create a new component by following these steps:
+
+1. Create a folder for the component named `ComponentName` in `components/`.
+2. Create an implementation file for the component code at `components/ComponentName/ComponentName.tsx`.
+3. Create a story file for the component code at `components/ComponentName/ComponentName.stories.tsx`.
+4. Export the component in `index.ts` and `standalone.ts`.
+
+## Troubleshooting
 
 Sometimes, Next.js caches previous versions of the component library, since we are using commit hashes to version rather than `package.json` versions. If you install a new version of the component library but your Next.js app does not seem to reflect the latest changes, try running `rm -rf .next` to clear the Next cache and then restart the app.
 

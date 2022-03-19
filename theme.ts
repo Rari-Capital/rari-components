@@ -81,6 +81,11 @@ const components = {
       },
     },
   },
+  Divider: {
+    baseStyle: {
+      borderColor: "darkgray",
+    },
+  },
   Heading: {
     variants: {
       gradient: {
