@@ -1,6 +1,6 @@
 # Rari Components
 
-Run `npm start` to start the Storybook development server.
+A component library for Rari Capital's frontend properties
 
 ## Usage
 
@@ -69,9 +69,10 @@ Note that the `standalone` entrypoint adds extra performance overhead since each
 To create a new component for `rari-components`:
 
 1. Create a directory for the component named `ComponentName` in the `components/` directory.
-2. Write an implementation of the component at `components/ComponentName/ComponentName.tsx`.
-3. Write Storybook stories for the component at `components/ComponentName/ComponentName.stories.tsx`.
-4. Export the component to package consumers in `index.ts` and `standalone.ts`.
+1. Write an implementation of the component at `components/ComponentName/ComponentName.tsx`.
+1. Write Storybook stories for the component at `components/ComponentName/ComponentName.stories.tsx`.
+1. Start the Storybook development server and test the component's stories: `npm run start`.
+1. Export the component to package consumers in `index.ts` and `standalone.ts`.
 
 ## Troubleshooting
 
