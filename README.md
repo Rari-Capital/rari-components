@@ -60,9 +60,9 @@ If you're incrementally adding `rari-components` to an existing dapp with a diff
 import { Card } from "rari-components/standalone";
 ```
 
-If you use this entry point, you can skip setting up the `ChakraProvider` with the `theme` imported from `rari-components/theme`. However, should still import the fonts and make changes to your `next.config.js` as outlined above.
+If you use this entry point, you can skip setting up the `ChakraProvider` with the `theme` imported from `rari-components/theme`. However, you should still import the fonts and make changes to your `next.config.js` as outlined above if the existing dapp doesn't have them already.
 
-Note that this options adds extra overhead since each standalone component is wrapped with its own `ChakraProvider`. For best performance, set up the theme and import from the main `rari-components` entrypoint as described above.
+Note that the `standalone` entrypoint adds extra performance overhead since each standalone component is wrapped with its own `ChakraProvider`. For best performance, set up the theme and import from the main `rari-components` entrypoint as described above.
 
 ## Adding New Components
 
