@@ -1,6 +1,8 @@
 # Rari Components
 
-A component library for Rari Capital's frontend properties
+A component library for Rari Capital's frontend properties.
+
+[Demo](https://rari-components.vercel.app/)
 
 ## Usage
 
