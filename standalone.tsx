@@ -29,7 +29,7 @@ function withStandaloneTheme<Props>(
  * useful for incrementally adding components to an existing app without making
  * app-wide modifications to the theme, but for performance reasons, prefer the
  * main entrypoint at `index.ts` for new apps (wrapping each component in
- * `<ChakraProvider />` can get expensive).
+ * its own `<ChakraProvider />` can get expensive).
  */
 export const Badge = withStandaloneTheme(Main.Badge);
 export const Button = withStandaloneTheme(Main.Button);
