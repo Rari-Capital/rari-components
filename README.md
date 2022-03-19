@@ -1,4 +1,4 @@
-## Rari Components
+# Rari Components
 
 Run `npm start` to start the Storybook development server.
 
