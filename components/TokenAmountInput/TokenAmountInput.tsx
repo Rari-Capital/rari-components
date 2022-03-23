@@ -14,8 +14,8 @@ type TokenAmountInputProps = Omit<InputGroupProps, "value" | "onChange"> & {
   onClickMax(): void;
   tokenSymbol: string;
   tokenAddress: string;
-  value: string;
-  onChange(newValue: string): void;
+  value?: string;
+  onChange?(newValue: string): void;
 };
 
 /**
@@ -38,8 +38,12 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
       fontWeight: number;
       backgroundColor: string;
     };
+    maxButton?: {
+      variant?: string;
+    };
   };
   const { color, fontWeight, backgroundColor } = inputStyle.field;
+  const maxButtonVariant = inputStyle?.maxButton?.variant;
 
   return (
     <InputGroup {...restProps}>
@@ -78,7 +82,7 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         top="calc(50% - 15px)"
         backgroundColor={backgroundColor}
       >
-        <Button size="xs" onClick={onClickMax}>
+        <Button size="xs" onClick={onClickMax} variant={maxButtonVariant}>
           {/* Exact `mt` set to vertically center text ignoring descenders */}
           <Text mt="3px">MAX</Text>
         </Button>

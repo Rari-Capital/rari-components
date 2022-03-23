@@ -123,7 +123,7 @@ const components = {
         field: {
           color: "white",
           borderColor: "darkgray",
-          backgroundColor: "darkmatte",
+          backgroundColor: "cardmatte",
           _hover: {
             borderColor: "mediumgray",
           },
@@ -131,6 +131,9 @@ const components = {
             borderColor: "mediumgray",
             boxShadow: "none",
           },
+        },
+        maxButton: {
+          variant: "neutral",
         },
       },
     },
