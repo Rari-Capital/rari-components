@@ -1,5 +1,5 @@
 import { Box, Center, Flex, Spinner } from "@chakra-ui/react";
-import Text from "../Text/Text";
+import Text from "../Text";
 
 type StepBubbleProps = {
   /**

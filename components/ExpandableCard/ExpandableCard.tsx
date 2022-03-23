@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { Fragment } from "react";
 
-import Card from "../Card/Card";
+import Card from "../Card";
 
 type ExpandableCardProps = React.ComponentProps<typeof Card> & {
   expandableChildren: React.ReactNode;

@@ -2,7 +2,7 @@ import { Stack } from "@chakra-ui/react";
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Heading from "../Heading/Heading";
+import Heading from "../Heading";
 import Divider from "./Divider";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

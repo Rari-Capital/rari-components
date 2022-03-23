@@ -73,6 +73,7 @@ To create a new component for `rari-components`:
 1. Create a directory for the component named `ComponentName` in the `components/` directory.
 1. Write an implementation of the component at `components/ComponentName/ComponentName.tsx`.
 1. Write Storybook stories for the component at `components/ComponentName/ComponentName.stories.tsx`.
+1. Export the component from `components/index.ts`: `export { default } from "./Component";`
 1. Start the Storybook development server and test the component's stories: `npm run start`.
 1. Export the component to package consumers in `index.ts` and `standalone.ts`.
 

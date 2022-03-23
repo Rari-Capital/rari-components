@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import Statistic from "../Statistic/Statistic";
+import Statistic from "../Statistic";
 import ExpandableCard from "./ExpandableCard";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

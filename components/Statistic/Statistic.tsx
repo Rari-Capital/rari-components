@@ -1,6 +1,6 @@
 import { Box, BoxProps, useStyleConfig } from "@chakra-ui/react";
-import Heading from "../Heading/Heading";
-import Text from "../Text/Text";
+import Heading from "../Heading";
+import Text from "../Text";
 
 type StatisticProps = BoxProps & {
   title: string;

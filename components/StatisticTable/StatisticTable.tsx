@@ -1,5 +1,5 @@
 import { Table, Tbody, Td, Tr } from "@chakra-ui/react";
-import Card from "../Card/Card";
+import Card from "../Card";
 
 type StatisticTableProps = React.ComponentProps<typeof Card> & {
   statistics: [title: string, value: string][];

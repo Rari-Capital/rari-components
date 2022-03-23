@@ -6,7 +6,7 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 
-import Text from "../Text/Text";
+import Text from "../Text";
 
 type ProgressProps = Omit<ChakraProgressProps, "colorScheme"> & {
   /**

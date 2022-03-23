@@ -1,20 +1,20 @@
-import Badge from "./components/Badge/Badge";
-import Button from "./components/Button/Button";
-import Card from "./components/Card/Card";
-import Divider from "./components/Divider/Divider";
-import ExpandableCard from "./components/ExpandableCard/ExpandableCard";
-import Heading from "./components/Heading/Heading";
-import Input from "./components/Input/Input";
-import Link from "./components/Link/Link";
-import Progress from "./components/Progress/Progress";
-import Statistic from "./components/Statistic/Statistic";
-import StatisticTable from "./components/StatisticTable/StatisticTable";
-import StepBubbles from "./components/StepBubbles/StepBubbles";
-import Tabs from "./components/Tabs/Tabs";
-import Text from "./components/Text/Text";
-import TokenAmountInput from "./components/TokenAmountInput/TokenAmountInput";
-import TokenIcon from "./components/TokenIcon/TokenIcon";
-import TokenGroup from "./components/TokenGroup/TokenGroup";
+import Badge from "./components/Badge";
+import Button from "./components/Button";
+import Card from "./components/Card";
+import Divider from "./components/Divider";
+import ExpandableCard from "./components/ExpandableCard";
+import Heading from "./components/Heading";
+import Input from "./components/Input";
+import Link from "./components/Link";
+import Progress from "./components/Progress";
+import Statistic from "./components/Statistic";
+import StatisticTable from "./components/StatisticTable";
+import StepBubbles from "./components/StepBubbles";
+import Tabs from "./components/Tabs";
+import Text from "./components/Text";
+import TokenAmountInput from "./components/TokenAmountInput";
+import TokenIcon from "./components/TokenIcon";
+import TokenGroup from "./components/TokenGroup";
 
 /**
  * Main entry point to the rari-components package. Typically, you will want

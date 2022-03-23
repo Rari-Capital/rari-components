@@ -5,10 +5,10 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 import React from "react";
-import Button from "../Button/Button";
-import Input from "../Input/Input";
-import Text from "../Text/Text";
-import TokenIcon from "../TokenIcon/TokenIcon";
+import Button from "../Button";
+import Input from "../Input";
+import Text from "../Text";
+import TokenIcon from "../TokenIcon";
 
 type TokenAmountInputProps = Omit<InputGroupProps, "value" | "onChange"> & {
   onClickMax(): void;
