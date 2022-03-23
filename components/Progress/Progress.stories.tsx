@@ -7,13 +7,6 @@ import Progress from "./Progress";
 export default {
   title: "Rari/Progress",
   component: Progress,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    size: {
-      control: "select",
-      options: ["xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl"],
-    },
-  },
 } as ComponentMeta<typeof Progress>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args

@@ -12,7 +12,7 @@ type ProgressProps = Omit<ChakraProgressProps, "colorScheme"> & {
   /**
    * The background color/variant for the bar (e.g. `success`, `gradient`).
    */
-  barVariant: string;
+  barVariant?: string;
   /**
    * Whether to hide the label showing the percent value indicated by the bar.
    */
@@ -25,7 +25,7 @@ type ProgressProps = Omit<ChakraProgressProps, "colorScheme"> & {
  */
 const Progress: React.FC<ProgressProps> = ({
   variant,
-  barVariant,
+  barVariant = "primary",
   value = 0,
   hideLabel,
   ...restProps
