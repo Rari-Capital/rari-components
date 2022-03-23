@@ -37,6 +37,13 @@ Large.args = {
   size: "lg",
 };
 
+export const LoadingMedium = Template.bind({});
+LoadingMedium.args = {
+  children: "Loading Medium Button",
+  loading: true,
+  size: "md",
+};
+
 export const NeutralMedium = Template.bind({});
 NeutralMedium.args = {
   children: "Neutral Medium Button",
