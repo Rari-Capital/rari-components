@@ -7,12 +7,10 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { useMemo } from "react";
-import { useTable } from "react-table";
 
 type Row = {
   key: string;
-  data: [];
+  data: string[];
 };
 
 type TableProps = ChakraTableProps & {

@@ -168,6 +168,12 @@ const components = {
       },
     },
   },
+  Table: {
+    baseStyle: {},
+    defaultProps: {
+      variant: "nonexistent",
+    },
+  },
   Tabs: {
     baseStyle: {
       tab: {
