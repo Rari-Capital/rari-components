@@ -6,10 +6,12 @@ import ExpandableCard from "./components/ExpandableCard";
 import Heading from "./components/Heading";
 import Input from "./components/Input";
 import Link from "./components/Link";
+import Modal from "./components/Modal";
 import Progress from "./components/Progress";
 import Statistic from "./components/Statistic";
 import StatisticTable from "./components/StatisticTable";
 import StepBubbles from "./components/StepBubbles";
+import Table from "./components/Table";
 import Tabs from "./components/Tabs";
 import Text from "./components/Text";
 import TokenAmountInput from "./components/TokenAmountInput";
@@ -31,10 +33,12 @@ export {
   Heading,
   Input,
   Link,
+  Modal,
   Progress,
   Statistic,
   StatisticTable,
   StepBubbles,
+  Table,
   Tabs,
   Text,
   TokenAmountInput,
