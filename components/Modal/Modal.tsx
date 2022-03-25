@@ -36,7 +36,7 @@ type ModalProps = ChakraModalProps & {
    * receives the index (in the `buttons` prop array) of the button that was
    * clicked.
    */
-  onClickButton(buttonIndex: number): void;
+  onClickButton?(buttonIndex: number): void;
   /**
    * If set, displays a small progress bar at the top of the modal. If unset,
    * hides the progress bar.
