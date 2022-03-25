@@ -37,6 +37,7 @@ export const Card = withStandaloneTheme(Main.Card);
 export const Divider = withStandaloneTheme(Main.Divider);
 export const ExpandableCard = withStandaloneTheme(Main.ExpandableCard);
 export const Heading = withStandaloneTheme(Main.Heading);
+export const HoverableCard = withStandaloneTheme(Main.HoverableCard);
 export const Input = withStandaloneTheme(Main.Input);
 export const Link = withStandaloneTheme(Main.Link);
 export const Modal = withStandaloneTheme(Main.Modal);

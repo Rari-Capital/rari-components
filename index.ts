@@ -4,6 +4,7 @@ import Card from "./components/Card";
 import Divider from "./components/Divider";
 import ExpandableCard from "./components/ExpandableCard";
 import Heading from "./components/Heading";
+import HoverableCard from "./components/HoverableCard";
 import Input from "./components/Input";
 import Link from "./components/Link";
 import Modal from "./components/Modal";
@@ -31,6 +32,7 @@ export {
   Divider,
   ExpandableCard,
   Heading,
+  HoverableCard,
   Input,
   Link,
   Modal,
