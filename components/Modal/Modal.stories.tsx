@@ -70,7 +70,6 @@ Default.args = {
     <>
       <TokenAmountInput
         onClickMax={() => {}}
-        tokenSymbol="TRIBE"
         tokenAddress="0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B"
       />
       <StatisticTable

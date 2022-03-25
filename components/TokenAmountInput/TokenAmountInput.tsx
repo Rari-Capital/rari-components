@@ -9,10 +9,10 @@ import Button from "../Button";
 import Input from "../Input";
 import Text from "../Text";
 import TokenIcon from "../TokenIcon";
+import TokenSymbol from "../TokenSymbol";
 
 type TokenAmountInputProps = Omit<InputGroupProps, "value" | "onChange"> & {
   onClickMax(): void;
-  tokenSymbol: string;
   tokenAddress: string;
   value?: string;
   onChange?(newValue: string): void;
@@ -25,7 +25,6 @@ type TokenAmountInputProps = Omit<InputGroupProps, "value" | "onChange"> & {
  */
 const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
   onClickMax,
-  tokenSymbol,
   tokenAddress,
   value,
   onChange,
@@ -72,7 +71,7 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
       >
         <TokenIcon size="xs" tokenAddress={tokenAddress} mr={2} />
         <Text color={color} fontWeight={fontWeight} mr={8}>
-          {tokenSymbol}
+          <TokenSymbol tokenAddress={tokenAddress} />
         </Text>
       </InputRightElement>
       <InputRightElement

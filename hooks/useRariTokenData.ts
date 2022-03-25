@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 /**
  * Type of the response from the Rari token data API
@@ -30,23 +30,35 @@ function useRariTokenData(tokenAddress: string) {
   const ctx = useContext(RariTokenDataContext);
   const normalizedTokenAddress = tokenAddress.toLowerCase();
 
+  // Store data in `useState` to ensure components re-render whenever
+  // `data` changes (the `ctx` object reference remains stable even after the
+  // cache is updated, meaning components may not always re-render otherwise).
+  const [data, setData] = useState<TokenData>();
+
   useEffect(() => {
     async function getData() {
       // Use Rari token data API to get token data
       const dataUrl =
         "https://rari-git-l2tokendata-rari-capital.vercel.app" +
         `/api/tokenData?address=${normalizedTokenAddress}&chainId=1`;
-      const data = await fetch(dataUrl);
-      const json = await data.json();
+      const response = await fetch(dataUrl);
+      const json = await response.json();
+
+      // Store data in cache
       ctx[normalizedTokenAddress] = json;
+
+      setData(json);
     }
 
-    if (typeof ctx[normalizedTokenAddress] === "undefined") {
+    const cachedData = ctx[normalizedTokenAddress];
+    if (typeof cachedData === "undefined") {
       getData();
+    } else {
+      setData(cachedData);
     }
   }, [ctx, normalizedTokenAddress]);
 
-  return ctx[normalizedTokenAddress];
+  return data;
 }
 
 export default useRariTokenData;

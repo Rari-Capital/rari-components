@@ -24,14 +24,12 @@ const Template: ComponentStory<typeof TokenAmountInput> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   size: "md",
-  tokenSymbol: "FEI",
   tokenAddress: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
 };
 
 export const Controlled = Template.bind({});
 Controlled.args = {
   size: "md",
-  tokenSymbol: "FEI",
   tokenAddress: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
   value: "10",
   onChange: (newValue) => console.log(newValue),
@@ -40,7 +38,6 @@ Controlled.args = {
 export const Large = Template.bind({});
 Large.args = {
   size: "lg",
-  tokenSymbol: "FEI",
   tokenAddress: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
 };
 
@@ -48,7 +45,6 @@ export const Light = Template.bind({});
 Light.args = {
   size: "md",
   variant: "light",
-  tokenSymbol: "FEI",
   tokenAddress: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
 };
 
@@ -56,6 +52,5 @@ export const LongTokenSymbol = Template.bind({});
 LongTokenSymbol.args = {
   size: "md",
   variant: "light",
-  tokenSymbol: "CRVtricrypto2",
-  tokenAddress: "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
+  tokenAddress: "0x9355372396e3F6daF13359B7b607a3374cc638e0",
 };
