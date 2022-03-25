@@ -3,6 +3,7 @@ import {
   InputGroupProps,
   InputRightElement,
   useStyleConfig,
+  useToken,
 } from "@chakra-ui/react";
 import React from "react";
 import Button from "../Button";
@@ -12,7 +13,11 @@ import TokenIcon from "../TokenIcon";
 import TokenSymbol from "../TokenSymbol";
 
 type TokenAmountInputProps = Omit<InputGroupProps, "value" | "onChange"> & {
-  onClickMax(): void;
+  /**
+   * Event handler which is triggered when the "MAX" button is clicked. If
+   * `undefined`, the "MAX" button is not shown.
+   */
+  onClickMax?(): void;
   tokenAddress: string;
   value?: string;
   onChange?(newValue: string): void;
@@ -43,6 +48,9 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
   };
   const { color, fontWeight, backgroundColor } = inputStyle.field;
   const maxButtonVariant = inputStyle?.maxButton?.variant;
+  // Need to resolve actual CSS background color from the theme since we use it
+  // in a `linear-gradient`.
+  const resolvedBackgroundColor = useToken("colors", backgroundColor);
 
   return (
     <InputGroup {...restProps}>
@@ -64,8 +72,10 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         height="30px"
         // Center horizontally
         top="calc(50% - 15px)"
-        right={12}
-        background={`linear-gradient(to right, transparent, ${backgroundColor} 25%)`}
+        // If `onClickMax` is `undefined`, "MAX" button will be hidden so we
+        // don't need to leave room for it.
+        right={!!onClickMax ? 12 : 0}
+        background={`linear-gradient(to right, transparent, ${resolvedBackgroundColor} 25%)`}
         width={52}
         justifyContent="flex-end"
       >
@@ -74,18 +84,21 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
           <TokenSymbol tokenAddress={tokenAddress} />
         </Text>
       </InputRightElement>
-      <InputRightElement
-        width={12}
-        right={2}
-        height="30px"
-        top="calc(50% - 15px)"
-        backgroundColor={backgroundColor}
-      >
-        <Button size="xs" onClick={onClickMax} variant={maxButtonVariant}>
-          {/* Exact `mt` set to vertically center text ignoring descenders */}
-          <Text mt="3px">MAX</Text>
-        </Button>
-      </InputRightElement>
+      {/* Hide "MAX" button if `onClickMax` is `undefined` */}
+      {!!onClickMax && (
+        <InputRightElement
+          width={12}
+          right={2}
+          height="30px"
+          top="calc(50% - 15px)"
+          backgroundColor={backgroundColor}
+        >
+          <Button size="xs" onClick={onClickMax} variant={maxButtonVariant}>
+            {/* Exact `mt` set to vertically center text ignoring descenders */}
+            <Text mt="3px">MAX</Text>
+          </Button>
+        </InputRightElement>
+      )}
     </InputGroup>
   );
 };
