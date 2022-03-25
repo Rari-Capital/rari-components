@@ -18,6 +18,7 @@ import Text from "./components/Text";
 import TokenAmountInput from "./components/TokenAmountInput";
 import TokenIcon from "./components/TokenIcon";
 import TokenGroup from "./components/TokenGroup";
+import TokenSymbol from "./components/TokenSymbol";
 
 /**
  * Main entry point to the rari-components package. Typically, you will want
@@ -46,4 +47,5 @@ export {
   TokenAmountInput,
   TokenIcon,
   TokenGroup,
+  TokenSymbol,
 };

@@ -51,3 +51,4 @@ export const Text = withStandaloneTheme(Main.Text);
 export const TokenAmountInput = withStandaloneTheme(Main.TokenAmountInput);
 export const TokenIcon = withStandaloneTheme(Main.TokenIcon);
 export const TokenGroup = withStandaloneTheme(Main.TokenGroup);
+export const TokenSymbol = withStandaloneTheme(Main.TokenSymbol);
