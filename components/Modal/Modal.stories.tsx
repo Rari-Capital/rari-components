@@ -1,6 +1,6 @@
 import { Box, useDisclosure } from "@chakra-ui/react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import React from "react";
+import React, { useEffect } from "react";
 
 import Button from "../Button";
 import Heading from "../Heading";
@@ -22,10 +22,13 @@ const Template: ComponentStory<typeof Modal> = ({
   progressValue,
   children,
   buttons,
+  onClickButton,
 }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure({
-    isOpen: true,
-  });
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  // Open the modal on initial load
+  useEffect(() => {
+    onOpen();
+  }, []);
 
   return (
     <Box>
@@ -37,6 +40,7 @@ const Template: ComponentStory<typeof Modal> = ({
         isOpen={isOpen}
         onClose={onClose}
         progressValue={progressValue}
+        onClickButton={onClickButton}
       >
         {children}
       </Modal>
@@ -59,6 +63,9 @@ Default.args = {
       variant: "neutral",
     },
   ],
+  onClickButton(buttonIndex) {
+    console.log(buttonIndex);
+  },
   children: (
     <>
       <TokenAmountInput

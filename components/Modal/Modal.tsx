@@ -7,6 +7,7 @@ import {
   ModalOverlay,
   ModalProps as ChakraModalProps,
 } from "@chakra-ui/react";
+import { useMemo } from "react";
 
 import Button from "../Button";
 import Heading from "../Heading";
@@ -26,9 +27,16 @@ type ModalProps = ChakraModalProps & {
    */
   subtitle?: string;
   /**
-   * A list of buttons that should be shown at the bottom of the modal.
+   * A list of buttons that should be shown at the bottom of the modal. To
+   * handle click events, use the `onClickButton` prop.
    */
-  buttons?: ButtonProps[];
+  buttons?: Omit<ButtonProps, "onClick">[];
+  /**
+   * An event handler that is called when a button is clicked. The handler
+   * receives the index (in the `buttons` prop array) of the button that was
+   * clicked.
+   */
+  onClickButton(buttonIndex: number): void;
   /**
    * If set, displays a small progress bar at the top of the modal. If unset,
    * hides the progress bar.
@@ -44,10 +52,17 @@ const Modal: React.FC<ModalProps> = ({
   subtitle,
   progressValue = 0,
   buttons = [],
+  onClickButton,
   children,
   onClose,
   ...restProps
 }) => {
+  // Create an `onClick` function for each index and wrap in `useMemo` so we
+  // don't create new functions on every re-render.
+  const onClicks = useMemo(() => {
+    return buttons.map((_, i) => () => onClickButton(i));
+  }, [buttons, onClickButton]);
+
   return (
     <ChakraModal onClose={onClose} {...restProps}>
       <ModalOverlay />
@@ -76,9 +91,11 @@ const Modal: React.FC<ModalProps> = ({
          */}
         <ModalBody mt={!!title ? 0 : 4}>{children}</ModalBody>
         <ModalFooter alignItems="stretch" justifyContent="stretch">
-          {buttons.map((buttonProps, i) => (
-            <Button key={i} flex={1} {...buttonProps} />
-          ))}
+          {buttons.map((buttonProps, i) => {
+            return (
+              <Button key={i} flex={1} onClick={onClicks[i]} {...buttonProps} />
+            );
+          })}
         </ModalFooter>
       </ModalContent>
     </ChakraModal>
