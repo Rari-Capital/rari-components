@@ -10,11 +10,21 @@ type CardProps = BoxProps & {
  * against the "lightmatte" background. See `theme.ts` for exact color
  * definitions.
  */
-const Card: React.FC<CardProps> = ({ variant, ...restProps }) => {
+const Card: React.FC<CardProps> = ({ variant, onClick, ...restProps }) => {
   // See https://github.com/chakra-ui/chakra-ui/issues/2456 for more info
   const styles = useStyleConfig("Card", { variant });
 
-  return <Box __css={styles} borderRadius="md" padding={8} {...restProps} />;
+  return (
+    <Box
+      __css={styles}
+      borderRadius="md"
+      padding={8}
+      // Automatically make the cursor a pointer if `onClick` is set.
+      cursor={!!onClick ? "pointer" : "default"}
+      onClick={onClick}
+      {...restProps}
+    />
+  );
 };
 
 export default Card;

@@ -68,6 +68,11 @@ const components = {
       backgroundColor: "cardmatte",
     },
     variants: {
+      ghost: {
+        backgroundColor: "cardmatte",
+        borderColor: "darkgray",
+        borderWidth: 2,
+      },
       light: {
         color: "black",
         borderColor: "lightgray",
