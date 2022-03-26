@@ -73,8 +73,6 @@ const Modal: React.FC<ModalProps> = ({
     );
   }, [buttons, onClickButton]);
 
-  console.log({ stepBubbles });
-
   return (
     <ChakraModal onClose={onClose} {...restProps}>
       <ModalOverlay />
