@@ -1,10 +1,10 @@
+import React from "react";
 import {
+  Center,
   Button as ChakraButton,
   ButtonProps as ChakraButtonProps,
-  Center,
   Spinner,
 } from "@chakra-ui/react";
-import React from "react";
 
 type ButtonProps = ChakraButtonProps & {
   /**
@@ -17,9 +17,16 @@ type ButtonProps = ChakraButtonProps & {
 /**
  * A basic button component.
  */
-const Button: React.FC<ButtonProps> = ({ loading, children, ...restProps }) => {
+const Button: React.FC<ButtonProps> = ({
+  loading,
+  disabled,
+  children,
+  ...restProps
+}) => {
   return (
-    <ChakraButton {...restProps}>
+    // If there is an explicit `disabled` prop provided, use that. Otherwise,
+    // the button should be disabled while loading.
+    <ChakraButton disabled={disabled || loading} {...restProps}>
       {loading && (
         <Center mr={3}>
           <Spinner size="sm" />
