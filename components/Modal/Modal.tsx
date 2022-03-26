@@ -1,14 +1,13 @@
+import { useMemo } from "react";
 import {
   Modal as ChakraModal,
+  ModalProps as ChakraModalProps,
   ModalBody,
   ModalContent,
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  ModalProps as ChakraModalProps,
 } from "@chakra-ui/react";
-import { useMemo } from "react";
-
 import Button from "../Button";
 import Heading from "../Heading";
 import Progress from "../Progress";
@@ -60,7 +59,9 @@ const Modal: React.FC<ModalProps> = ({
   // Create an `onClick` function for each index and wrap in `useMemo` so we
   // don't create new functions on every re-render.
   const onClicks = useMemo(() => {
-    return buttons.map((_, i) => () => onClickButton(i));
+    return buttons.map((_, i) =>
+      !!onClickButton ? () => onClickButton(i) : undefined
+    );
   }, [buttons, onClickButton]);
 
   return (
