@@ -1,5 +1,5 @@
 import { isNil, isObject } from "lodash";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import {
   Modal as ChakraModal,
   ModalProps as ChakraModalProps,
@@ -48,10 +48,7 @@ type ModalProps = ChakraModalProps & {
    * If not `undefined`, displays a `StepBubbles` component below the buttons
    * with the given props. If `undefined`, nothing is shown.
    */
-  stepBubbles?: {
-    steps: number;
-    activeIndex: number;
-  };
+  stepBubbles?: Omit<React.ComponentProps<typeof StepBubbles>, "size">;
 };
 
 /**
@@ -138,11 +135,7 @@ const Modal: React.FC<ModalProps> = ({
           })}
           {!!stepBubbles && (
             <Flex justifyContent="center" flex={1}>
-              <StepBubbles
-                steps={stepBubbles.steps}
-                activeIndex={stepBubbles.activeIndex}
-                size={8}
-              />
+              <StepBubbles size={8} {...stepBubbles} />
             </Flex>
           )}
         </ModalFooter>
