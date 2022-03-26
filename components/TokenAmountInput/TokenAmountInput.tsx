@@ -73,14 +73,19 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         // Center horizontally
         top="calc(50% - 15px)"
         // If `onClickMax` is `undefined`, "MAX" button will be hidden so we
-        // don't need to leave room for it.
-        right={!!onClickMax ? 12 : 0}
+        // don't need to leave room for it. Just leave a little bit of space so
+        // the border isn't covered.
+        right={!!onClickMax ? 12 : "2px"}
         background={`linear-gradient(to right, transparent, ${resolvedBackgroundColor} 25%)`}
         width={52}
         justifyContent="flex-end"
       >
         <TokenIcon size="xs" tokenAddress={tokenAddress} mr={2} />
-        <Text color={color} fontWeight={fontWeight} mr={8}>
+        {/*
+         * Leave less margin on the right of the symbol if there's no "MAX"
+         * button
+         */}
+        <Text color={color} fontWeight={fontWeight} mr={!!onClickMax ? 8 : 4}>
           <TokenSymbol tokenAddress={tokenAddress} />
         </Text>
       </InputRightElement>
