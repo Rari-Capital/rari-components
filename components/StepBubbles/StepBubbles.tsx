@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Spinner } from "@chakra-ui/react";
+import { Box, Center, Flex, LayoutProps, Spinner } from "@chakra-ui/react";
 import Text from "../Text";
 
 type StepBubbleProps = {
@@ -14,6 +14,10 @@ type StepBubbleProps = {
    * The background color for the bubble.
    */
   background: string;
+  /**
+   * The size of the bubbles.
+   */
+  size: LayoutProps["boxSize"];
 };
 
 const StepBubble: React.FC<StepBubbleProps> = ({
@@ -21,19 +25,19 @@ const StepBubble: React.FC<StepBubbleProps> = ({
   active,
   last,
   background,
+  size,
 }) => {
   return (
     <Center>
       <Center
         background={background}
-        height={12}
-        width={12}
+        boxSize={size}
         borderRadius="50%"
         opacity={active ? 1 : 0.5}
       >
         {children}
       </Center>
-      {!last && <Box width={12} height="1px" background={background} />}
+      {!last && <Box width={size} height="1px" background={background} />}
     </Center>
   );
 };
@@ -53,6 +57,10 @@ type StepBubblesProps = {
    * step).
    */
   loading?: boolean;
+  /**
+   * The size of the bubbles.
+   */
+  size?: LayoutProps["boxSize"];
 };
 
 /**
@@ -64,6 +72,7 @@ const StepBubbles: React.FC<StepBubblesProps> = ({
   steps,
   activeIndex,
   loading,
+  size = 12,
 }) => {
   return (
     <Flex>
@@ -77,6 +86,7 @@ const StepBubbles: React.FC<StepBubblesProps> = ({
             background={i < activeIndex ? "mediumgray" : "primary"}
             active={active}
             last={i === steps - 1}
+            size={size}
           >
             {active && loading ? (
               <Spinner />

@@ -1,8 +1,9 @@
-import { isBoolean, isNil, isNumber, isObject, isString } from "lodash";
+import { isNil, isObject } from "lodash";
 import { useMemo } from "react";
 import {
   Modal as ChakraModal,
   ModalProps as ChakraModalProps,
+  Flex,
   ModalBody,
   ModalContent,
   ModalFooter,
@@ -12,6 +13,7 @@ import {
 import Button from "../Button";
 import Heading from "../Heading";
 import Progress from "../Progress";
+import StepBubbles from "../StepBubbles";
 import Text from "../Text";
 
 type ButtonProps = React.ComponentProps<typeof Button>;
@@ -42,6 +44,14 @@ type ModalProps = ChakraModalProps & {
    * hides the progress bar.
    */
   progressValue?: number;
+  /**
+   * If not `undefined`, displays a `StepBubbles` component below the buttons
+   * with the given props. If `undefined`, nothing is shown.
+   */
+  stepBubbles?: {
+    steps: number;
+    activeIndex: number;
+  };
 };
 
 /**
@@ -55,6 +65,7 @@ const Modal: React.FC<ModalProps> = ({
   onClickButton,
   children,
   onClose,
+  stepBubbles,
   ...restProps
 }) => {
   // Create an `onClick` function for each index and wrap in `useMemo` so we
@@ -64,6 +75,8 @@ const Modal: React.FC<ModalProps> = ({
       !!onClickButton ? () => onClickButton(i) : undefined
     );
   }, [buttons, onClickButton]);
+
+  console.log({ stepBubbles });
 
   return (
     <ChakraModal onClose={onClose} {...restProps}>
@@ -123,6 +136,15 @@ const Modal: React.FC<ModalProps> = ({
               />
             );
           })}
+          {!!stepBubbles && (
+            <Flex justifyContent="center" flex={1}>
+              <StepBubbles
+                steps={stepBubbles.steps}
+                activeIndex={stepBubbles.activeIndex}
+                size={8}
+              />
+            </Flex>
+          )}
         </ModalFooter>
       </ModalContent>
     </ChakraModal>

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { CheckCircleIcon } from "@chakra-ui/icons";
 import { Box, useDisclosure } from "@chakra-ui/react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button from "../Button";
@@ -22,6 +23,7 @@ const Template: ComponentStory<typeof Modal> = ({
   children,
   buttons,
   onClickButton,
+  stepBubbles,
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   // Open the modal on initial load
@@ -40,6 +42,7 @@ const Template: ComponentStory<typeof Modal> = ({
         onClose={onClose}
         progressValue={progressValue}
         onClickButton={onClickButton}
+        stepBubbles={stepBubbles}
       >
         {children}
       </Modal>
@@ -86,8 +89,24 @@ export const NoTitle = Template.bind({});
 NoTitle.args = {
   children: (
     <>
-      <Heading>TRIBE Safe</Heading>
+      <CheckCircleIcon color="neutral" boxSize={40} />
+      <Heading mt={8}>TRIBE Safe</Heading>
       <Text variant="secondary">Successfully created</Text>
+    </>
+  ),
+};
+
+export const StepBubbles = Template.bind({});
+StepBubbles.args = {
+  stepBubbles: {
+    activeIndex: 1,
+    steps: 3,
+  },
+  title: "Step 1",
+  subtitle: "This is the first step in a multi-step process.",
+  children: (
+    <>
+      <Text>There are more steps to come.</Text>
     </>
   ),
 };
