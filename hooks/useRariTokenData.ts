@@ -34,31 +34,40 @@ function useRariTokenData(tokenAddress: string) {
   // `data` changes (the `ctx` object reference remains stable even after the
   // cache is updated, meaning components may not always re-render otherwise).
   const [data, setData] = useState<TokenData>();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getData() {
+      setLoading(true);
       // Use Rari token data API to get token data
       const dataUrl =
         "https://rari-git-l2tokendata-rari-capital.vercel.app" +
         `/api/tokenData?address=${normalizedTokenAddress}&chainId=1`;
-      const response = await fetch(dataUrl);
-      const json = await response.json();
+      try {
+        const response = await fetch(dataUrl);
+        const json = await response.json();
 
-      // Store data in cache
-      ctx[normalizedTokenAddress] = json;
+        // Store data in cache
+        ctx[normalizedTokenAddress] = json;
 
-      setData(json);
+        setData(json);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
     }
 
     const cachedData = ctx[normalizedTokenAddress];
     if (typeof cachedData === "undefined") {
       getData();
     } else {
+      setLoading(false);
       setData(cachedData);
     }
   }, [ctx, normalizedTokenAddress]);
 
-  return data;
+  return { data, loading };
 }
 
 export default useRariTokenData;

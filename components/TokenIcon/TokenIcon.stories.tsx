@@ -1,6 +1,6 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-
+import { SkeletonCircle } from "@chakra-ui/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import TokenIcon from "./TokenIcon";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -33,4 +33,10 @@ FeiUsd.args = {
 export const Tribe = Template.bind({});
 Tribe.args = {
   tokenAddress: "0xc7283b66eb1eb5fb86327f08e1b5816b0720212b",
+};
+
+export const WithFallback = Template.bind({});
+WithFallback.args = {
+  tokenAddress: "0xc7283b66eb1eb5fb86327f08e1b5816b0720212b",
+  fallback: <SkeletonCircle />,
 };
