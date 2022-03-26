@@ -1,7 +1,6 @@
-import { Box, useDisclosure } from "@chakra-ui/react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import React, { useEffect } from "react";
-
+import { Box, useDisclosure } from "@chakra-ui/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button from "../Button";
 import Heading from "../Heading";
 import StatisticTable from "../StatisticTable";

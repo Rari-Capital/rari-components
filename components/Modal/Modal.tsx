@@ -1,3 +1,4 @@
+import { isBoolean, isNil, isNumber, isObject, isString } from "lodash";
 import { useMemo } from "react";
 import {
   Modal as ChakraModal,
@@ -93,8 +94,33 @@ const Modal: React.FC<ModalProps> = ({
         <ModalBody mt={!!title ? 0 : 4}>{children}</ModalBody>
         <ModalFooter alignItems="stretch" justifyContent="stretch">
           {buttons.map((buttonProps, i) => {
+            const { children } = buttonProps;
+
+            // This should generate a sufficiently unique key to avoid weird
+            // style changes when switching out buttons.
+            let key;
+            if (isNil(children)) {
+              key = "nil";
+            } else if (!isObject(children)) {
+              key = children.toString();
+            } else {
+              key = Object.values(children)
+                // Symbols cannot be converted to strings
+                .filter((value) => typeof value !== "symbol")
+                // Just get the first five properties to ensure keys aren't
+                // excessively long.
+                .slice(0, 5)
+                .map((value) => `${value}`)
+                .join(",");
+            }
+
             return (
-              <Button key={i} flex={1} onClick={onClicks[i]} {...buttonProps} />
+              <Button
+                key={key}
+                flex={1}
+                onClick={onClicks[i]}
+                {...buttonProps}
+              />
             );
           })}
         </ModalFooter>
