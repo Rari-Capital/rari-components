@@ -100,39 +100,45 @@ const Modal: React.FC<ModalProps> = ({
          * `margin-top`.
          */}
         <ModalBody mt={!!title ? 0 : 4}>{children}</ModalBody>
-        <ModalFooter alignItems="stretch" justifyContent="stretch">
-          {buttons.map((buttonProps, i) => {
-            const { children } = buttonProps;
+        <ModalFooter flexDirection="column" alignItems="stretch">
+          <Flex>
+            {buttons.map((buttonProps, i) => {
+              const { children } = buttonProps;
 
-            // This should generate a sufficiently unique key to avoid weird
-            // style changes when switching out buttons.
-            let key;
-            if (isNil(children)) {
-              key = "nil";
-            } else if (!isObject(children)) {
-              key = children.toString();
-            } else {
-              key = Object.values(children)
-                // Symbols cannot be converted to strings
-                .filter((value) => typeof value !== "symbol")
-                // Just get the first five properties to ensure keys aren't
-                // excessively long.
-                .slice(0, 5)
-                .map((value) => `${value}`)
-                .join(",");
-            }
+              // This should generate a sufficiently unique key to avoid weird
+              // style changes when switching out buttons.
+              let key;
+              if (isNil(children)) {
+                key = "nil";
+              } else if (!isObject(children)) {
+                key = children.toString();
+              } else {
+                key = Object.values(children)
+                  // Symbols cannot be converted to strings
+                  .filter((value) => typeof value !== "symbol")
+                  // Just get the first five properties to ensure keys aren't
+                  // excessively long.
+                  .slice(0, 5)
+                  .map((value) => `${value}`)
+                  .join(",");
+              }
 
-            return (
-              <Button
-                key={key}
-                flex={1}
-                onClick={onClicks[i]}
-                {...buttonProps}
-              />
-            );
-          })}
+              return (
+                <Button
+                  key={key}
+                  flex={1}
+                  onClick={onClicks[i]}
+                  {...buttonProps}
+                />
+              );
+            })}
+          </Flex>
           {!!stepBubbles && (
-            <Flex justifyContent="center" flex={1}>
+            <Flex
+              justifyContent="center"
+              flex={1}
+              mt={buttons.length > 0 ? 8 : 4}
+            >
               <StepBubbles size={8} {...stepBubbles} />
             </Flex>
           )}

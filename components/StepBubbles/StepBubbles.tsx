@@ -1,4 +1,11 @@
-import { Box, Center, Flex, LayoutProps, Spinner } from "@chakra-ui/react";
+import {
+  BackgroundProps,
+  Box,
+  Center,
+  Flex,
+  LayoutProps,
+  Spinner,
+} from "@chakra-ui/react";
 import Text from "../Text";
 
 type StepBubbleProps = {
@@ -13,7 +20,7 @@ type StepBubbleProps = {
   /**
    * The background color for the bubble.
    */
-  background: string;
+  background: BackgroundProps["background"];
   /**
    * The size of the bubbles.
    */
@@ -61,6 +68,11 @@ type StepBubblesProps = {
    * The size of the bubbles.
    */
   size?: LayoutProps["boxSize"];
+  /**
+   * The background color of steps bubbles for steps that are yet to be
+   * completed (completed steps have a gray background).
+   */
+  background?: BackgroundProps["background"];
 };
 
 /**
@@ -73,6 +85,7 @@ const StepBubbles: React.FC<StepBubblesProps> = ({
   activeIndex,
   loading,
   size = 12,
+  background = "primary",
 }) => {
   return (
     <Flex>
@@ -83,7 +96,7 @@ const StepBubbles: React.FC<StepBubblesProps> = ({
           <StepBubble
             key={i}
             // Show a gray background if the step was completed
-            background={i < activeIndex ? "mediumgray" : "primary"}
+            background={i < activeIndex ? "mediumgray" : background}
             active={active}
             last={i === steps - 1}
             size={size}

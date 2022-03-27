@@ -98,10 +98,6 @@ NoTitle.args = {
 
 export const StepBubbles = Template.bind({});
 StepBubbles.args = {
-  stepBubbles: {
-    activeIndex: 1,
-    steps: 3,
-  },
   title: "Step 1",
   subtitle: "This is the first step in a multi-step process.",
   children: (
@@ -109,4 +105,33 @@ StepBubbles.args = {
       <Text>There are more steps to come.</Text>
     </>
   ),
+  buttons: [
+    {
+      children: "Skip",
+      variant: "cardmatte",
+    },
+    {
+      children: "Review transaction",
+      variant: "neutral",
+    },
+  ],
+  stepBubbles: {
+    activeIndex: 1,
+    steps: 3,
+  },
+};
+
+export const StepBubblesNoButtons = Template.bind({});
+StepBubblesNoButtons.args = {
+  title: "Step 1",
+  subtitle: "This is the first step in a multi-step process.",
+  children: (
+    <>
+      <Text>There are more steps to come.</Text>
+    </>
+  ),
+  stepBubbles: {
+    activeIndex: 1,
+    steps: 3,
+  },
 };

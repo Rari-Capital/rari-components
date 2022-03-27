@@ -1,6 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import StepBubbles from "./StepBubbles";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -18,4 +17,11 @@ export const Default = Template.bind({});
 Default.args = {
   steps: 3,
   activeIndex: 0,
+};
+
+export const Neutral = Template.bind({});
+Neutral.args = {
+  steps: 3,
+  activeIndex: 0,
+  background: "neutral",
 };
