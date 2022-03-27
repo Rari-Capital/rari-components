@@ -1,3 +1,4 @@
+import React, { useRef } from "react";
 import {
   InputGroup,
   InputGroupProps,
@@ -5,7 +6,6 @@ import {
   useStyleConfig,
   useToken,
 } from "@chakra-ui/react";
-import React from "react";
 import Button from "../Button";
 import Input from "../Input";
 import Text from "../Text";
@@ -36,6 +36,7 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
   variant,
   ...restProps
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const inputStyle = useStyleConfig("Input", { variant }) as {
     field: {
       color: string;
@@ -64,6 +65,7 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         // Disable increment/decrement on scroll
         // https://stackoverflow.com/questions/63224459/disable-scrolling-on-input-type-number-in-react
         onWheel={(e) => e.currentTarget.blur()}
+        ref={inputRef}
       />
       <InputRightElement
         // We want to make the background of the token solid so we can't see the
@@ -79,6 +81,13 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         background={`linear-gradient(to right, transparent, ${resolvedBackgroundColor} 25%)`}
         width={52}
         justifyContent="flex-end"
+        cursor="text"
+        // Focus the input when the token symbol is clicked
+        onClick={() => {
+          if (inputRef.current) {
+            inputRef.current.focus();
+          }
+        }}
       >
         <TokenIcon size="xs" tokenAddress={tokenAddress} mr={2} />
         {/*
