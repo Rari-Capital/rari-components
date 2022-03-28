@@ -1,6 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Badge from "./Badge";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -22,4 +21,12 @@ export const SuccessBadge = Template.bind({});
 SuccessBadge.args = {
   children: "Success Badge",
   variant: "success",
+};
+
+export const LargeBadge = Template.bind({});
+LargeBadge.args = {
+  fontSize: "lg",
+  boxSize: 20,
+  children: "Large",
+  variant: "primary",
 };

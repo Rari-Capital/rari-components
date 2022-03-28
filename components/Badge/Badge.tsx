@@ -1,7 +1,7 @@
 import {
   Badge as ChakraBadge,
   BadgeProps as ChakraBadgeProps,
-  Box,
+  Flex,
 } from "@chakra-ui/react";
 
 type BadgeProps = ChakraBadgeProps;
@@ -34,9 +34,17 @@ const Badge: React.FC<BadgeProps> = ({ variant, children, ...restProps }) => {
       borderRadius="lg"
       {...restProps}
     >
-      <Box position="relative" zIndex={1} padding={1}>
+      <Flex
+        position="relative"
+        height="100%"
+        width="100%"
+        zIndex={1}
+        padding={1}
+        alignItems="center"
+        justifyContent="center"
+      >
         {children}
-      </Box>
+      </Flex>
     </ChakraBadge>
   );
 };
