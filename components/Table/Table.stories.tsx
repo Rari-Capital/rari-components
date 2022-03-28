@@ -1,6 +1,5 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
 import React from "react";
-
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Table from "./Table";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -20,6 +19,10 @@ Default.args = {
   rows: [
     {
       key: "1",
+      data: ["Tetranode's Locker", "$3,651", "2.3%", "Active boost"],
+    },
+    {
+      key: "2",
       data: ["Tetranode's Locker", "$3,651", "2.3%", "Active boost"],
     },
   ],

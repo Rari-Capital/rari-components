@@ -1,5 +1,5 @@
-import { extendTheme } from "@chakra-ui/react";
 import { mapValues } from "lodash";
+import { extendTheme } from "@chakra-ui/react";
 
 const colors = {
   primary: "#3687FF",
@@ -69,7 +69,7 @@ const components = {
     },
     variants: {
       ghost: {
-        backgroundColor: "cardmatte",
+        backgroundColor: "transparent",
         borderColor: "darkgray",
         borderWidth: 2,
       },

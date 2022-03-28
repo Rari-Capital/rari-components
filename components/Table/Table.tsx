@@ -7,10 +7,12 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
+import Card from "../Card";
+import Text from "../Text";
 
 type Row = {
   key: string;
-  data: string[];
+  data: React.ReactNode[];
 };
 
 type TableProps = ChakraTableProps & {
@@ -23,24 +25,43 @@ type TableProps = ChakraTableProps & {
  */
 const Table: React.FC<TableProps> = ({ headings, rows, ...restProps }) => {
   return (
-    <ChakraTable {...restProps}>
-      <Thead>
-        <Tr>
-          {headings.map((heading) => (
-            <Th key={heading}>{heading}</Th>
-          ))}
-        </Tr>
-      </Thead>
-      <Tbody>
-        {rows.map((row) => (
-          <Tr key={row.key}>
-            {row.data.map((item) => (
-              <Td key={`${row.key}-${item}`}>{item}</Td>
+    <Card variant="ghost" p={0}>
+      <ChakraTable {...restProps}>
+        <Thead>
+          <Tr>
+            {headings.map((heading) => (
+              <Th
+                key={heading}
+                borderBottomColor="darkgray"
+                borderBottomWidth={2}
+                py={6}
+              >
+                <Text
+                  fontWeight={400}
+                  variant="secondary"
+                  textTransform="none"
+                  fontSize="md"
+                  letterSpacing={0}
+                >
+                  {heading}
+                </Text>
+              </Th>
             ))}
           </Tr>
-        ))}
-      </Tbody>
-    </ChakraTable>
+        </Thead>
+        <Tbody>
+          {rows.map((row) => (
+            <Tr key={row.key}>
+              {row.data.map((item) => (
+                <Td key={`${row.key}-${item}`} py={8}>
+                  {item}
+                </Td>
+              ))}
+            </Tr>
+          ))}
+        </Tbody>
+      </ChakraTable>
+    </Card>
   );
 };
 
