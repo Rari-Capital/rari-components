@@ -1,5 +1,5 @@
-import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";
+import { Box as ChakraBox, ChakraProvider } from "@chakra-ui/react";
 import * as Main from "./index";
 import theme from "./theme";
 
@@ -32,6 +32,8 @@ function withStandaloneTheme<Props>(
  * its own `<ChakraProvider />` can get expensive).
  */
 export const Badge = withStandaloneTheme(Main.Badge);
+// Export theme-aware standalone `Box`
+export const Box = withStandaloneTheme(ChakraBox);
 export const Button = withStandaloneTheme(Main.Button);
 export const Card = withStandaloneTheme(Main.Card);
 export const Divider = withStandaloneTheme(Main.Divider);

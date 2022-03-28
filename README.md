@@ -62,9 +62,20 @@ If you're incrementally adding `rari-components` to an existing dapp with a diff
 import { Card } from "rari-components/standalone";
 ```
 
-If you use this entry point, you can skip setting up the `ChakraProvider` with the `theme` imported from `rari-components/theme`. However, you should still import the fonts and make changes to your `next.config.js` as outlined above if the existing dapp doesn't have them already.
+In addition to all the `rari-components` exported in the main entry point, the `rari-components/standalone` entry point also exports a theme-aware standalone `Box`:
 
-The `standalone` entrypoint adds extra performance overhead since each standalone component is wrapped with its own `ChakraProvider`. For best performance, set up the theme and import from the main `rari-components` entrypoint as described above.
+```tsx
+import { Box as RariBox } from "rari-components/standalone";
+
+const MyComponent = () => (
+  // This `Box` will have the correct `cardmatte` color from the theme!
+  <RariBox backgroundColor="cardmatte" />
+);
+```
+
+If you use the `rari-components/standalone` entry point, you can skip setting up the `ChakraProvider` with the `theme` imported from `rari-components/theme`. However, you should still import the fonts and make changes to your `next.config.js` as outlined above if the existing dapp doesn't have them already.
+
+The `standalone` entry point adds extra performance overhead since each standalone component is wrapped with its own `ChakraProvider`. For best performance, set up the theme and import from the main `rari-components` entry point as described above.
 
 ## Adding New Components
 
