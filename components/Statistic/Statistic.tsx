@@ -6,6 +6,7 @@ import Text from "../Text";
 type StatisticProps = BoxProps & {
   title: string;
   subtitle: string;
+  tooltip: string;
   value: React.ReactNode;
   variant?: string;
 };
