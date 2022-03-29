@@ -6,7 +6,8 @@ import Text from "../Text";
 type StatisticProps = BoxProps & {
   title: string;
   subtitle: string;
-  tooltip: string;
+  tooltip?: string;
+  loading?: boolean;
   value: React.ReactNode;
   variant?: string;
 };
@@ -18,6 +19,8 @@ type StatisticProps = BoxProps & {
 const Statistic: React.FC<StatisticProps> = ({
   title,
   subtitle,
+  tooltip,
+  loading = false,
   value,
   variant,
   ...restProps
