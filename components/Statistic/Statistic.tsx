@@ -1,10 +1,12 @@
+import { isString } from "lodash";
 import { Box, BoxProps, useStyleConfig } from "@chakra-ui/react";
 import Heading from "../Heading";
 import Text from "../Text";
 
 type StatisticProps = BoxProps & {
   title: string;
-  value: string;
+  subtitle: string;
+  value: React.ReactNode;
   variant?: string;
 };
 
@@ -14,6 +16,7 @@ type StatisticProps = BoxProps & {
  */
 const Statistic: React.FC<StatisticProps> = ({
   title,
+  subtitle,
   value,
   variant,
   ...restProps
@@ -28,9 +31,14 @@ const Statistic: React.FC<StatisticProps> = ({
       <Text fontSize="sm" mb={2} color={color} opacity={0.5}>
         {title}
       </Text>
-      <Heading size="lg" color={color}>
-        {value}
-      </Heading>
+      {isString(value) ? (
+        <Heading size="lg" color={color}>
+          {value}
+        </Heading>
+      ) : (
+        value
+      )}
+      <Text variant="secondary">{subtitle}</Text>
     </Box>
   );
 };
