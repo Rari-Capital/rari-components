@@ -30,3 +30,4 @@ const TokenIcon: React.FC<TokenIconProps> = ({
 };
 
 export default TokenIcon;
+export type { TokenIconProps };

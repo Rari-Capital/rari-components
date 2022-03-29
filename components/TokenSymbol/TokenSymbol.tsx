@@ -29,3 +29,4 @@ const TokenSymbol: React.FC<TokenSymbolProps> = ({
 };
 
 export default TokenSymbol;
+export type { TokenSymbolProps };

@@ -19,3 +19,4 @@ const TokenGroup: React.FC<TokenGroupProps> = ({ addresses, ...restProps }) => {
 };
 
 export default TokenGroup;
+export type { TokenGroupProps };

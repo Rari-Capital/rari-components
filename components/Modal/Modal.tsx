@@ -151,3 +151,4 @@ function Modal<Ctx>({
 }
 
 export default Modal;
+export type { ModalProps };

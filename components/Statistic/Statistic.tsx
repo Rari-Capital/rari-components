@@ -36,3 +36,4 @@ const Statistic: React.FC<StatisticProps> = ({
 };
 
 export default Statistic;
+export type { StatisticProps };

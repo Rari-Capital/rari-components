@@ -19,3 +19,4 @@ const Text: React.FC<TextProps> = ({ variant, ...restProps }) => {
 };
 
 export default Text;
+export type { TextProps };

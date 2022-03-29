@@ -66,3 +66,4 @@ const Table: React.FC<TableProps> = ({ headings, rows, ...restProps }) => {
 };
 
 export default Table;
+export type { TableProps };

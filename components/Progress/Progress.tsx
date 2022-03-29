@@ -1,11 +1,10 @@
 import {
   Box,
-  Flex,
   Progress as ChakraProgress,
   ProgressProps as ChakraProgressProps,
+  Flex,
   useStyleConfig,
 } from "@chakra-ui/react";
-
 import Text from "../Text";
 
 type ProgressProps = Omit<ChakraProgressProps, "colorScheme"> & {
@@ -78,3 +77,4 @@ const Progress: React.FC<ProgressProps> = ({
 };
 
 export default Progress;
+export type { ProgressProps };
