@@ -90,8 +90,14 @@ To create a new component for `rari-components`:
 
 ## Troubleshooting
 
+### Updates Not Reflected in Next.js App
+
 Since we are using commit hashes to version this package rather than `package.json` versions, Next.js sometimes caches previous versions of the component library between builds.
 
 If you install a new version of `rari-components` but your Next.js app does not seem to reflect the latest changes, try running `rm -rf .next` to clear the Next cache and then restart the app.
 
 In production, a manual re-deploy on Vercel should force a build with no cache.
+
+### Type Errors
+
+Run `npm run typecheck` to typecheck `components/`.

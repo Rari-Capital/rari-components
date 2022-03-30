@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "typecheck": "npx tsc components/**/*.tsx --noEmit --skipLibCheck --jsx preserve --esModuleInterop"
   },
   "peerDependencies": {
     "@chakra-ui/icons": "1.x",

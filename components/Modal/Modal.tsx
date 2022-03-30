@@ -62,7 +62,7 @@ type ModalProps<Ctx extends object> = Omit<ChakraModalProps, "children"> & {
 /**
  * A modal component based off of Chakra's `Modal`.
  */
-function Modal<Ctx>({
+function Modal<Ctx extends object>({
   ctx,
   title,
   subtitle,
