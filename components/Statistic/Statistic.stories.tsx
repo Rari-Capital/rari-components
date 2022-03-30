@@ -32,7 +32,7 @@ Default.args = {
 export const ReactNodeValue = Template.bind({});
 ReactNodeValue.args = {
   title: "You supplied",
-  subtitle: "$100",
+  secondaryValue: "$100",
   value: (
     <>
       100{" "}
