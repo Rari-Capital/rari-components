@@ -35,3 +35,4 @@ const HoverableCard: React.FC<HoverableCardProps> = ({
 };
 
 export default HoverableCard;
+export type { HoverableCardProps };

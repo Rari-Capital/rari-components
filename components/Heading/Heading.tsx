@@ -18,3 +18,4 @@ const Heading: React.FC<HeadingProps> = ({ variant, ...restProps }) => {
 };
 
 export default Heading;
+export type { HeadingProps };

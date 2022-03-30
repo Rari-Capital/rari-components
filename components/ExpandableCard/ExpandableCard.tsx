@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
 import {
   Accordion,
@@ -10,8 +11,6 @@ import {
   IconButton,
   useStyleConfig,
 } from "@chakra-ui/react";
-import { Fragment } from "react";
-
 import Card from "../Card";
 
 type ExpandableCardProps = React.ComponentProps<typeof Card> & {
@@ -92,3 +91,4 @@ const ExpandableCard: React.FC<ExpandableCardProps> = ({
 };
 
 export default ExpandableCard;
+export type { ExpandableCardProps };

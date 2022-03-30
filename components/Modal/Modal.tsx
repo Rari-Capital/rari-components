@@ -1,5 +1,5 @@
-import { isNil, isObject } from "lodash";
-import React, { useMemo } from "react";
+import { isFunction, isNil, isObject } from "lodash";
+import React from "react";
 import {
   Modal as ChakraModal,
   ModalProps as ChakraModalProps,
@@ -17,62 +17,62 @@ import StepBubbles from "../StepBubbles";
 import Text from "../Text";
 
 type ButtonProps = React.ComponentProps<typeof Button>;
+type ModalStepBubblesProp = Omit<
+  React.ComponentProps<typeof StepBubbles>,
+  "size"
+>;
 
-type ModalProps = ChakraModalProps & {
+type ModalProps<Ctx = undefined> = Omit<ChakraModalProps, "children"> & {
+  /**
+   * Context object that can be passed to the `Modal`'s props. Based on
+   * `react-navigation`'s `Screen` `options` API, which can take a function if
+   * the consumer wants to update props conditionally based on the context.
+   */
+  ctx?: Ctx;
   /**
    * The title of the modal.
    */
-  title?: string;
+  title?: string | ((ctx: Ctx) => string);
   /**
    * The subtitle of the modal. Displayed below the title. If no `title` is
    * set, the subtitle is not shown either.
    */
-  subtitle?: string;
+  subtitle?: string | ((ctx: Ctx) => string);
   /**
    * A list of buttons that should be shown at the bottom of the modal. To
    * handle click events, use the `onClickButton` prop.
    */
-  buttons?: Omit<ButtonProps, "onClick">[];
-  /**
-   * An event handler that is called when a button is clicked. The handler
-   * receives the index (in the `buttons` prop array) of the button that was
-   * clicked.
-   */
-  onClickButton?(buttonIndex: number): void;
+  buttons?: ButtonProps[] | ((ctx: Ctx) => ButtonProps[]);
   /**
    * If set, displays a small progress bar at the top of the modal. If unset,
    * hides the progress bar.
    */
-  progressValue?: number;
+  progressValue?: number | ((ctx: Ctx) => number);
   /**
    * If not `undefined`, displays a `StepBubbles` component below the buttons
    * with the given props. If `undefined`, nothing is shown.
    */
-  stepBubbles?: Omit<React.ComponentProps<typeof StepBubbles>, "size">;
+  stepBubbles?: ModalStepBubblesProp | ((ctx: Ctx) => ModalStepBubblesProp);
+  /**
+   * Children (i.e. content) for the `Modal`.
+   */
+  children: React.ReactNode | ((ctx: Ctx) => React.ReactNode);
 };
 
 /**
  * A modal component based off of Chakra's `Modal`.
  */
-const Modal: React.FC<ModalProps> = ({
+function Modal<Ctx>({
+  ctx,
   title,
   subtitle,
   progressValue = 0,
   buttons = [],
-  onClickButton,
   children,
   onClose,
   stepBubbles,
   ...restProps
-}) => {
-  // Create an `onClick` function for each index and wrap in `useMemo` so we
-  // don't create new functions on every re-render.
-  const onClicks = useMemo(() => {
-    return buttons.map((_, i) =>
-      !!onClickButton ? () => onClickButton(i) : undefined
-    );
-  }, [buttons, onClickButton]);
-
+}: ModalProps<Ctx>): ReturnType<React.FC> {
   return (
     <ChakraModal onClose={onClose} {...restProps}>
       <ModalOverlay />
@@ -82,16 +82,18 @@ const Modal: React.FC<ModalProps> = ({
           <Progress
             barVariant="neutral"
             hideLabel
-            value={progressValue}
+            value={
+              isFunction(progressValue) ? progressValue(ctx) : progressValue
+            }
             height={1}
             mb={4}
           />
         )}
         {!!title && (
           <ModalHeader>
-            <Heading>{title}</Heading>
+            <Heading>{isFunction(title) ? title(ctx) : title}</Heading>
             <Text variant="secondary" fontWeight={400} fontSize="sm" mt={2}>
-              {subtitle}
+              {isFunction(subtitle) ? subtitle(ctx) : subtitle}
             </Text>
           </ModalHeader>
         )}
@@ -99,39 +101,36 @@ const Modal: React.FC<ModalProps> = ({
          * If no `title` is set, the `ModalBody` needs to have its own
          * `margin-top`.
          */}
-        <ModalBody mt={!!title ? 0 : 4}>{children}</ModalBody>
+        <ModalBody mt={!!title ? 0 : 4}>
+          {isFunction(children) ? children(ctx) : children}
+        </ModalBody>
         <ModalFooter flexDirection="column" alignItems="stretch">
           <Flex>
-            {buttons.map((buttonProps, i) => {
-              const { children } = buttonProps;
+            {(isFunction(buttons) ? buttons(ctx) : buttons).map(
+              (buttonProps, i) => {
+                const { children } = buttonProps;
 
-              // This should generate a sufficiently unique key to avoid weird
-              // style changes when switching out buttons.
-              let key;
-              if (isNil(children)) {
-                key = "nil";
-              } else if (!isObject(children)) {
-                key = children.toString();
-              } else {
-                key = Object.values(children)
-                  // Symbols cannot be converted to strings
-                  .filter((value) => typeof value !== "symbol")
-                  // Just get the first five properties to ensure keys aren't
-                  // excessively long.
-                  .slice(0, 5)
-                  .map((value) => `${value}`)
-                  .join(",");
+                // This should generate a sufficiently unique key to avoid weird
+                // style changes when switching out buttons.
+                let key;
+                if (isNil(children)) {
+                  key = "nil";
+                } else if (!isObject(children)) {
+                  key = children.toString();
+                } else {
+                  key = Object.values(children)
+                    // Symbols cannot be converted to strings
+                    .filter((value) => typeof value !== "symbol")
+                    // Just get the first five properties to ensure keys aren't
+                    // excessively long.
+                    .slice(0, 5)
+                    .map((value) => `${value}`)
+                    .join(",");
+                }
+
+                return <Button key={key} flex={1} {...buttonProps} />;
               }
-
-              return (
-                <Button
-                  key={key}
-                  flex={1}
-                  onClick={onClicks[i]}
-                  {...buttonProps}
-                />
-              );
-            })}
+            )}
           </Flex>
           {!!stepBubbles && (
             <Flex
@@ -139,13 +138,17 @@ const Modal: React.FC<ModalProps> = ({
               flex={1}
               mt={buttons.length > 0 ? 8 : 4}
             >
-              <StepBubbles size={8} {...stepBubbles} />
+              <StepBubbles
+                size={8}
+                {...(isFunction(stepBubbles) ? stepBubbles(ctx) : stepBubbles)}
+              />
             </Flex>
           )}
         </ModalFooter>
       </ModalContent>
     </ChakraModal>
   );
-};
+}
 
 export default Modal;
+export type { ModalProps };

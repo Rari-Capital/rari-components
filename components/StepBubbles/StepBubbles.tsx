@@ -116,3 +116,4 @@ const StepBubbles: React.FC<StepBubblesProps> = ({
 };
 
 export default StepBubbles;
+export type { StepBubblesProps };

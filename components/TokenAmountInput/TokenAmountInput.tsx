@@ -118,3 +118,4 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
 };
 
 export default TokenAmountInput;
+export type { TokenAmountInputProps };

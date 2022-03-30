@@ -28,3 +28,4 @@ const Card: React.FC<CardProps> = ({ variant, onClick, ...restProps }) => {
 };
 
 export default Card;
+export type { CardProps };

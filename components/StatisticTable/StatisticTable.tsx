@@ -57,3 +57,4 @@ const StatisticTable: React.FC<StatisticTableProps> = ({
 };
 
 export default StatisticTable;
+export type { StatisticTableProps };

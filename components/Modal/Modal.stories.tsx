@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { Box, useDisclosure } from "@chakra-ui/react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
@@ -22,7 +22,6 @@ const Template: ComponentStory<typeof Modal> = ({
   progressValue,
   children,
   buttons,
-  onClickButton,
   stepBubbles,
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,17 +30,27 @@ const Template: ComponentStory<typeof Modal> = ({
     onOpen();
   }, []);
 
+  const [counter, setCounter] = useState(0);
+  function incrementCounter() {
+    setCounter(counter + 1);
+  }
+
+  const ctx = {
+    counter,
+    incrementCounter,
+  };
+
   return (
     <Box>
       <Button onClick={onOpen}>Open Modal</Button>
       <Modal
+        ctx={ctx}
         title={title}
         subtitle={subtitle}
         buttons={buttons}
         isOpen={isOpen}
         onClose={onClose}
         progressValue={progressValue}
-        onClickButton={onClickButton}
         stepBubbles={stepBubbles}
       >
         {children}
@@ -65,9 +74,6 @@ Default.args = {
       variant: "neutral",
     },
   ],
-  onClickButton(buttonIndex) {
-    console.log(buttonIndex);
-  },
   children: (
     <>
       <TokenAmountInput
@@ -134,4 +140,23 @@ StepBubblesNoButtons.args = {
     activeIndex: 1,
     steps: 3,
   },
+};
+
+export const WithCtx = Template.bind({});
+WithCtx.args = {
+  title: (ctx: any) => `Counter (${ctx.counter})`,
+  subtitle: ((ctx: any) => `Here's a counter: ${ctx.counter}`) as any,
+  progressValue: (ctx: any) => ctx.counter,
+  buttons: (ctx: any) => [
+    {
+      children: `Increment to ${ctx.counter + 1}`,
+      variant: "neutral",
+      onClick: ctx.incrementCounter,
+    },
+  ],
+  children: (ctx: any) => (
+    <>
+      <Text>The counter is currently at {ctx.counter}.</Text>
+    </>
+  ),
 };

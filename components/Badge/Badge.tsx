@@ -50,3 +50,4 @@ const Badge: React.FC<BadgeProps> = ({ variant, children, ...restProps }) => {
 };
 
 export default Badge;
+export type { BadgeProps };

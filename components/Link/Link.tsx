@@ -28,3 +28,4 @@ const Link: React.FC<LinkProps> = ({ href, ...restProps }) => {
 };
 
 export default Link;
+export type { LinkProps };

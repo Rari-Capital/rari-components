@@ -13,3 +13,4 @@ const Tabs: React.FC<TabsProps> = (props) => {
 };
 
 export default Tabs;
+export type { TabsProps };
