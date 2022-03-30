@@ -22,13 +22,13 @@ type ModalStepBubblesProp = Omit<
   "size"
 >;
 
-type ModalProps<Ctx extends object> = Omit<ChakraModalProps, "children"> & {
+type ModalProps<Ctx> = Omit<ChakraModalProps, "children"> & {
   /**
    * Context object that can be passed to the `Modal`'s props. Based on
    * `react-navigation`'s `Screen` `options` API, which can take a function if
    * the consumer wants to update props conditionally based on the context.
    */
-  ctx?: Ctx;
+  ctx: Ctx;
   /**
    * The title of the modal.
    */
@@ -62,7 +62,7 @@ type ModalProps<Ctx extends object> = Omit<ChakraModalProps, "children"> & {
 /**
  * A modal component based off of Chakra's `Modal`.
  */
-function Modal<Ctx extends object>({
+function Modal<Ctx>({
   ctx,
   title,
   subtitle,
