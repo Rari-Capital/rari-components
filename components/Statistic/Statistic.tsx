@@ -5,10 +5,10 @@ import Text from "../Text";
 
 type StatisticProps = BoxProps & {
   title: string;
-  subtitle: string;
   tooltip?: string;
   loading?: boolean;
   value: React.ReactNode;
+  secondaryValue?: string;
   variant?: string;
 };
 
@@ -18,10 +18,10 @@ type StatisticProps = BoxProps & {
  */
 const Statistic: React.FC<StatisticProps> = ({
   title,
-  subtitle,
   tooltip,
   loading = false,
   value,
+  secondaryValue,
   variant,
   ...restProps
 }) => {
@@ -42,7 +42,7 @@ const Statistic: React.FC<StatisticProps> = ({
       ) : (
         value
       )}
-      <Text variant="secondary">{subtitle}</Text>
+      {!!secondaryValue && <Text variant="secondary">{secondaryValue}</Text>}
     </Box>
   );
 };
