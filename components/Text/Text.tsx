@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import {
   Text as ChakraText,
   TextProps as ChakraTextProps,
@@ -9,14 +10,19 @@ type TextProps = ChakraTextProps;
  * A basic text component which supports contextual colors (e.g.
  * `variant="success"`) and gradient text (`variant="gradient"`).
  */
-const Text: React.FC<TextProps> = ({ variant, ...restProps }) => {
-  // If `variant` is not "gradient" or "secondary", it refers to a color.
-  // Otherwise, pass through the variant so Chakra can style it.
-  const color =
-    variant !== "gradient" && variant !== "secondary" ? variant : undefined;
+const Text = forwardRef<HTMLParagraphElement, TextProps>(
+  ({ variant, ...restProps }, ref) => {
+    // If `variant` is not "gradient" or "secondary", it refers to a color.
+    // Otherwise, pass through the variant so Chakra can style it.
+    const color =
+      variant !== "gradient" && variant !== "secondary" ? variant : undefined;
 
-  return <ChakraText variant={variant} color={color} {...restProps} />;
-};
+    return (
+      <ChakraText ref={ref} variant={variant} color={color} {...restProps} />
+    );
+  }
+);
+Text.displayName = "Text";
 
 export default Text;
 export type { TextProps };

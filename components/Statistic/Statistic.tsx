@@ -1,7 +1,14 @@
 import { isString } from "lodash";
-import { Box, BoxProps, useStyleConfig } from "@chakra-ui/react";
-import Heading from "../Heading";
-import Text from "../Text";
+import { InfoOutlineIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  BoxProps,
+  Flex,
+  Heading,
+  Text,
+  useStyleConfig,
+} from "@chakra-ui/react";
+import Tooltip from "../Tooltip";
 
 type StatisticProps = BoxProps & {
   title: string;
@@ -32,9 +39,16 @@ const Statistic: React.FC<StatisticProps> = ({
 
   return (
     <Box mr={4} textAlign="left" {...restProps}>
-      <Text fontSize="sm" mb={2} color={color} opacity={0.5}>
-        {title}
-      </Text>
+      <Flex alignItems="center" mb={2} opacity={0.5}>
+        <Text fontSize="sm" color={color}>
+          {title}
+        </Text>
+        {tooltip && (
+          <Tooltip label={tooltip}>
+            <InfoOutlineIcon boxSize={4} ml={2} />
+          </Tooltip>
+        )}
+      </Flex>
       {isString(value) ? (
         <Heading size="lg" color={color}>
           {value}
@@ -42,7 +56,11 @@ const Statistic: React.FC<StatisticProps> = ({
       ) : (
         value
       )}
-      {!!secondaryValue && <Text variant="secondary">{secondaryValue}</Text>}
+      {!!secondaryValue && (
+        <Text variant="secondary" mt={2}>
+          {secondaryValue}
+        </Text>
+      )}
     </Box>
   );
 };

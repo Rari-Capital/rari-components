@@ -218,9 +218,12 @@ const components = {
       },
     },
   },
-  // https://github.com/chakra-ui/chakra-ui/issues/2347#issuecomment-917375118
-  defaultProps: {
-    variant: "outline",
+  Tooltip: {
+    baseStyle: {
+      "--tooltip-bg": "black",
+      color: "white",
+      textAlign: "center",
+    },
   },
 };
 

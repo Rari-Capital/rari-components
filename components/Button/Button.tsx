@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import {
   Center,
   Button as ChakraButton,
@@ -17,25 +17,23 @@ type ButtonProps = ChakraButtonProps & {
 /**
  * A basic button component.
  */
-const Button: React.FC<ButtonProps> = ({
-  loading,
-  disabled,
-  children,
-  ...restProps
-}) => {
-  return (
-    // If there is an explicit `disabled` prop provided, use that. Otherwise,
-    // the button should be disabled while loading.
-    <ChakraButton disabled={disabled || loading} {...restProps}>
-      {loading && (
-        <Center mr={3}>
-          <Spinner size="sm" />
-        </Center>
-      )}
-      {children}
-    </ChakraButton>
-  );
-};
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ loading, disabled, children, ...restProps }, ref) => {
+    return (
+      // If there is an explicit `disabled` prop provided, use that. Otherwise,
+      // the button should be disabled while loading.
+      <ChakraButton ref={ref} disabled={disabled || loading} {...restProps}>
+        {loading && (
+          <Center mr={3}>
+            <Spinner size="sm" />
+          </Center>
+        )}
+        {children}
+      </ChakraButton>
+    );
+  }
+);
+Button.displayName = "Button";
 
 export default Button;
 export type { ButtonProps };

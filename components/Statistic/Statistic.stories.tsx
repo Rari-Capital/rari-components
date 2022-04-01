@@ -1,5 +1,7 @@
 import React from "react";
+import { Flex } from "@chakra-ui/react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import Heading from "../Heading";
 import TokenIcon from "../TokenIcon";
 import Statistic from "./Statistic";
 
@@ -34,9 +36,17 @@ ReactNodeValue.args = {
   title: "You supplied",
   secondaryValue: "$100",
   value: (
-    <>
-      100{" "}
+    <Flex alignItems="center">
       <TokenIcon tokenAddress="0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48" />
-    </>
+      <Heading ml={2}>100 USDC</Heading>
+    </Flex>
   ),
+  tooltip: "$100.00",
 };
+
+export const Row = () => (
+  <Flex>
+    <Statistic title="Title" value="100" />
+    <Statistic title="Title" value="100" secondaryValue="Subtitle" />
+  </Flex>
+);
