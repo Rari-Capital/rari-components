@@ -92,7 +92,7 @@ function Modal<Ctx>({
         {!!title && (
           <ModalHeader>
             <Heading>{isFunction(title) ? title(ctx) : title}</Heading>
-            <Text variant="secondary" fontWeight={400} fontSize="sm" mt={2}>
+            <Text variant="secondary" fontWeight={400} fontSize="md" mt={2}>
               {isFunction(subtitle) ? subtitle(ctx) : subtitle}
             </Text>
           </ModalHeader>
