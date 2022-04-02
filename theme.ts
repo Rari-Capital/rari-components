@@ -148,6 +148,9 @@ const components = {
       track: {
         background: "cardmatte",
       },
+      filledTrack: {
+        transition: "width 500ms ease-out"
+      },
       label: {
         color: "white",
       },
