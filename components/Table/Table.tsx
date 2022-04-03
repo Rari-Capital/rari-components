@@ -11,12 +11,24 @@ import Card from "../Card";
 import Text from "../Text";
 
 type Row = {
+  /**
+   * A unique key to be used as the React `key` on the `Tr`s.
+   */
   key: string;
-  data: React.ReactNode[];
+  /**
+   * A list of ReactNodes to be rendered in `Td`s.
+   */
+  items: React.ReactNode[];
 };
 
 type TableProps = ChakraTableProps & {
+  /**
+   * A list of headings for the table.
+   */
   headings: string[];
+  /**
+   * A list of rows for the table.
+   */
   rows: Row[];
 };
 
@@ -52,8 +64,12 @@ const Table: React.FC<TableProps> = ({ headings, rows, ...restProps }) => {
         <Tbody>
           {rows.map((row) => (
             <Tr key={row.key}>
-              {row.data.map((item) => (
-                <Td key={`${row.key}-${JSON.stringify(item)}`} py={8}>
+              {row.items.map((item, index) => (
+                // `index` is safe to use here as long as the number of items
+                // in the row and the order of the items doesn't change.
+                // This is reasonable since we probably won't be adding/removing
+                // headings to the table after it's created?
+                <Td key={`${row.key}-${index}`} py={8}>
                   {item}
                 </Td>
               ))}
