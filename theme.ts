@@ -210,6 +210,10 @@ const components = {
     },
   },
   Text: {
+    baseStyle: {
+      // Ensures that `Text` doesn't have 600 weight when nested under links
+      fontWeight: 400,
+    },
     variants: {
       secondary: {
         opacity: 0.5,
