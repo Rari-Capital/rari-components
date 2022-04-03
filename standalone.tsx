@@ -54,3 +54,4 @@ export const TokenAmountInput = withStandaloneTheme(Main.TokenAmountInput);
 export const TokenIcon = withStandaloneTheme(Main.TokenIcon);
 export const TokenGroup = withStandaloneTheme(Main.TokenGroup);
 export const TokenSymbol = withStandaloneTheme(Main.TokenSymbol);
+export const Tooltip = withStandaloneTheme(Main.Tooltip);

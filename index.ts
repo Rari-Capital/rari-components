@@ -25,6 +25,7 @@ import TokenAmountInput, {
 import TokenGroup, { TokenGroupProps } from "./components/TokenGroup";
 import TokenIcon, { TokenIconProps } from "./components/TokenIcon";
 import TokenSymbol, { TokenSymbolProps } from "./components/TokenSymbol";
+import Tooltip, { TooltipProps } from "./components/Tooltip";
 
 /**
  * Main entry point to the rari-components package. Typically, you will want
@@ -54,6 +55,7 @@ export {
   TokenIcon,
   TokenGroup,
   TokenSymbol,
+  Tooltip,
 };
 export type {
   BadgeProps,
@@ -77,4 +79,5 @@ export type {
   TokenIconProps,
   TokenGroupProps,
   TokenSymbolProps,
+  TooltipProps,
 };
