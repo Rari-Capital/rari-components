@@ -53,7 +53,7 @@ const Table: React.FC<TableProps> = ({ headings, rows, ...restProps }) => {
           {rows.map((row) => (
             <Tr key={row.key}>
               {row.data.map((item) => (
-                <Td key={`${row.key}-${item}`} py={8}>
+                <Td key={`${row.key}-${JSON.stringify(item)}`} py={8}>
                   {item}
                 </Td>
               ))}
