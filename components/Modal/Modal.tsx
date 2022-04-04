@@ -128,7 +128,7 @@ function Modal<Ctx>({
                     .join(",");
                 }
 
-                return <Button key={key} flex={1} {...buttonProps} />;
+                return <Button key={key} py={6} flex={1} {...buttonProps} />;
               }
             )}
           </Flex>

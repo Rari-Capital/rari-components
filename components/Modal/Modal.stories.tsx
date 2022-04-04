@@ -124,6 +124,7 @@ StepBubbles.args = {
   stepBubbles: {
     activeIndex: 1,
     steps: 3,
+    background: "neutral",
   },
 };
 
@@ -139,6 +140,7 @@ StepBubblesNoButtons.args = {
   stepBubbles: {
     activeIndex: 1,
     steps: 3,
+    background: "neutral",
   },
 };
 
