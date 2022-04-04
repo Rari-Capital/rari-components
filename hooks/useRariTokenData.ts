@@ -20,7 +20,7 @@ const RariTokenDataContext = createContext<RariTokenDataContextType>({});
  * in context and returns the cached result if called for a second time with the
  * same address.
  */
-function useRariTokenData(tokenAddress: string) {
+function useRariTokenData(tokenAddress: string, chainId: number = 1) {
   /**
    * Note that context can be used without a matching `Provider` above it in
    * the tree, in which case it will fall back to the default value. Thus, it
@@ -41,8 +41,8 @@ function useRariTokenData(tokenAddress: string) {
       setLoading(true);
       // Use Rari token data API to get token data
       const dataUrl =
-        "https://rari-git-l2tokendata-rari-capital.vercel.app" +
-        `/api/tokenData?address=${normalizedTokenAddress}&chainId=1`;
+        "https://v2.rari.capital" +
+        `/api/tokenData?address=${normalizedTokenAddress}&chainId=${chainId}`;
       try {
         const response = await fetch(dataUrl);
         const json = await response.json();

@@ -29,13 +29,19 @@ FeiUsd.args = {
   tokenAddress: "0x956F47F50A910163D8BF957Cf5846D573E7f87CA",
 };
 
-export const Tribe = Template.bind({});
-Tribe.args = {
-  tokenAddress: "0xc7283b66eb1eb5fb86327f08e1b5816b0720212b",
+export const ArbitrumUsdCoin = Template.bind({});
+ArbitrumUsdCoin.args = {
+  tokenAddress: "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+  chainId: 42161,
 };
 
 export const WithFallback = Template.bind({});
 WithFallback.args = {
   tokenAddress: "0xc7283b66eb1eb5fb86327f08e1b5816b0720212b",
   fallback: "Loading...",
+};
+
+export const Tribe = Template.bind({});
+Tribe.args = {
+  tokenAddress: "0xc7283b66eb1eb5fb86327f08e1b5816b0720212b",
 };

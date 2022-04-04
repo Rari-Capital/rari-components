@@ -144,13 +144,25 @@ const components = {
       },
     },
   },
+  Link: {
+    baseStyle: {
+      fontWeight: 600,
+      color: "white",
+      _hover: { textDecoration: "none", color: "lightgray" },
+    },
+    variants: {
+      secondary: {
+        opacity: 0.5,
+      },
+    },
+  },
   Progress: {
     baseStyle: {
       track: {
         background: "cardmatte",
       },
       filledTrack: {
-        transition: "width 500ms ease-out"
+        transition: "width 500ms ease-out",
       },
       label: {
         color: "white",

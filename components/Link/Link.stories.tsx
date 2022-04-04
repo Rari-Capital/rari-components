@@ -1,6 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Link from "./Link";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -25,4 +24,11 @@ export const Default = Template.bind({});
 Default.args = {
   href: "https://google.com",
   children: "Google",
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  href: "https://google.com",
+  children: "Google",
+  variant: "secondary",
 };

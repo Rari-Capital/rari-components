@@ -17,12 +17,7 @@ const Link: React.FC<LinkProps> = ({ href, ...restProps }) => {
   // info
   return (
     <NextLink href={href} passHref>
-      <ChakraLink
-        fontWeight={600}
-        color="white"
-        _hover={{ textDecoration: "none", color: "lightgray" }}
-        {...restProps}
-      />
+      <ChakraLink {...restProps} />
     </NextLink>
   );
 };

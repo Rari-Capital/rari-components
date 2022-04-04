@@ -7,6 +7,10 @@ type TokenIconProps = AvatarProps & {
    */
   tokenAddress: string;
   /**
+   * The id of the chain that the token is deployed on. Defaults to `1`.
+   */
+  chainId?: number;
+  /**
    * React elements to render while the token symbol is loading.
    */
   fallback?: React.ReactNode;
@@ -18,9 +22,10 @@ type TokenIconProps = AvatarProps & {
 const TokenIcon: React.FC<TokenIconProps> = ({
   tokenAddress,
   fallback,
+  chainId = 1,
   ...restProps
 }) => {
-  const { data, loading } = useRariTokenData(tokenAddress);
+  const { data, loading } = useRariTokenData(tokenAddress, chainId);
 
   if (loading && !!fallback) {
     return <>{fallback}</>;
