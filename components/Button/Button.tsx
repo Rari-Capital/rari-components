@@ -22,7 +22,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       // If there is an explicit `disabled` prop provided, use that. Otherwise,
       // the button should be disabled while loading.
-      <ChakraButton ref={ref} disabled={disabled || loading} {...restProps}>
+      <ChakraButton ref={ref} disabled={disabled ?? loading} {...restProps}>
         {loading && (
           <Center mr={3}>
             <Spinner size="sm" />
