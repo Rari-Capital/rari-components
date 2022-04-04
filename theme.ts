@@ -6,6 +6,7 @@ const colors = {
   success: "#4CD791",
   neutral: "#6C69E9",
   warning: "#FFBE5E",
+  danger: "#DB6464",
   // Used for text/foreground elements
   darkgray: "#3E3E3E",
   // Avoid "gray" so we don't conflict with a default Chakra color
