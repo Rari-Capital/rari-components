@@ -22,7 +22,8 @@ type Row = {
 
 type TableProps = CardProps & {
   /**
-   * A list of headings for the table.
+   * A list of headings for the table. Use a blank string for an empty heading.
+   * (Useful if you want to put buttons, etc. in a row without a heading).
    */
   headings: string[];
   /**
@@ -40,9 +41,12 @@ const Table: React.FC<TableProps> = ({ headings, rows, ...restProps }) => {
       <ChakraTable>
         <Thead>
           <Tr>
-            {headings.map((heading) => (
+            {headings.map((heading, index) => (
               <Th
-                key={heading}
+                // If the heading is an empty string, fall back on using the
+                // index. This should be reasonable since headings probably
+                // won't be reordered after the table is created?
+                key={heading || index}
                 borderBottomColor="darkgray"
                 borderBottomWidth={2}
                 py={6}
