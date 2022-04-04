@@ -1,13 +1,12 @@
 import {
   Table as ChakraTable,
-  TableProps as ChakraTableProps,
   Tbody,
   Td,
   Th,
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import Card from "../Card";
+import Card, { CardProps } from "../Card";
 import Text from "../Text";
 
 type Row = {
@@ -21,7 +20,7 @@ type Row = {
   items: React.ReactNode[];
 };
 
-type TableProps = ChakraTableProps & {
+type TableProps = CardProps & {
   /**
    * A list of headings for the table.
    */
@@ -37,8 +36,8 @@ type TableProps = ChakraTableProps & {
  */
 const Table: React.FC<TableProps> = ({ headings, rows, ...restProps }) => {
   return (
-    <Card variant="ghost" p={0}>
-      <ChakraTable {...restProps}>
+    <Card variant="ghost" p={0} {...restProps}>
+      <ChakraTable>
         <Thead>
           <Tr>
             {headings.map((heading) => (
