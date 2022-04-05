@@ -69,6 +69,8 @@ import { Box as RariBox } from "rari-components/standalone";
 
 const MyComponent = () => (
   // This `Box` will have the correct `cardmatte` color from the theme!
+  // Note, however, that all children of this `Box` will also read from the
+  // theme exported by this repo.
   <RariBox backgroundColor="cardmatte" />
 );
 ```
