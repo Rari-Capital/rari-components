@@ -109,7 +109,9 @@ const TokenAmountInput: React.FC<TokenAmountInputProps> = ({
         >
           <Button size="xs" onClick={onClickMax} variant={maxButtonVariant}>
             {/* Exact `mt` set to vertically center text ignoring descenders */}
-            <Text mt="3px">MAX</Text>
+            <Text fontWeight={600} mt="3px">
+              MAX
+            </Text>
           </Button>
         </InputRightElement>
       )}
