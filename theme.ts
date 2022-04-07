@@ -14,13 +14,11 @@ const colors = {
   mediumgray: "#909090",
   lightgray: "#E0E0E0",
   // Used for cards
-  cardmatte: "#303030",
+  cardmatte: "#15171A",
   activematte: "#EFF5FF",
   lightmatte: "#F0F0F0",
   // Used for background
-  darkmatte: "#101010",
-  // Used for borders
-  activeborder: "#3683F6",
+  darkmatte: "#000000",
 };
 
 const components = {
@@ -44,6 +42,15 @@ const components = {
       },
     },
     variants: {
+      ghost: {
+        color: "white",
+        backgroundColor: "transparent",
+        borderColor: "white",
+        borderWidth: 1,
+        _hover: {
+          background: "transparent",
+        },
+      },
       // Create button variants for all colors
       ...mapValues(colors, (_, key) => ({
         background: key,
@@ -69,21 +76,19 @@ const components = {
       backgroundColor: "cardmatte",
     },
     variants: {
+      active: {
+        borderColor: "darkgray",
+        borderWidth: 1,
+      },
       ghost: {
         backgroundColor: "transparent",
         borderColor: "darkgray",
-        borderWidth: 2,
+        borderWidth: 1,
       },
       light: {
         color: "black",
         borderColor: "lightgray",
         backgroundColor: "lightmatte",
-      },
-      active: {
-        color: "black",
-        borderColor: "activeborder",
-        borderWidth: "1px",
-        backgroundColor: "activematte",
       },
     },
   },

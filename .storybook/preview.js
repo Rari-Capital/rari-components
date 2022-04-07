@@ -7,7 +7,7 @@ export const parameters = {
     values: [
       {
         name: "darkmatte",
-        value: "#101010",
+        value: "#000000",
       },
       {
         name: "lightmatte",

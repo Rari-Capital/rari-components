@@ -6,7 +6,7 @@ type CardProps = BoxProps & {
 
 /**
  * A card component which can contain content. The default card style pairs
- * well against a "darkmatte" background, and the "light" variant pairs well
+ * well against a "black" background, and the "light" variant pairs well
  * against the "lightmatte" background. See `theme.ts` for exact color
  * definitions.
  */
