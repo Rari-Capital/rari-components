@@ -19,11 +19,11 @@ Default.args = {
   rows: [
     {
       key: "1",
-      data: ["Tetranode's Locker", "$3,651", "2.3%", "Active boost"],
+      items: ["Tetranode's Locker", "$3,651", "2.3%", "Active boost"],
     },
     {
       key: "2",
-      data: ["Tetranode's Locker", "$3,651", "2.3%", "Active boost"],
+      items: ["Tetranode's Locker", "$3,651", "2.3%", "Active boost"],
     },
   ],
 };

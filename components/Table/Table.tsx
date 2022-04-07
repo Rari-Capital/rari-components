@@ -37,7 +37,7 @@ type TableProps = CardProps & {
  */
 const Table: React.FC<TableProps> = ({ headings, rows, ...restProps }) => {
   return (
-    <Card variant="ghost" p={0} {...restProps}>
+    <Card variant="ghost" p={0} overflowX="auto" {...restProps}>
       <ChakraTable>
         <Thead>
           <Tr>
