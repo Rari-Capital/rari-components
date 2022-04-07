@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({ variant, onClick, ...restProps }) => {
   return (
     <Box
       __css={styles}
-      borderRadius="md"
+      borderRadius="2xl"
       padding={8}
       // Automatically make the cursor a pointer if `onClick` is set.
       cursor={!!onClick ? "pointer" : "default"}
