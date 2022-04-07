@@ -98,6 +98,9 @@ const components = {
     },
   },
   Heading: {
+    baseStyle: {
+      fontWeight: 600,
+    },
     variants: {
       gradient: {
         background: "linear-gradient(87.87deg, #9C39FF 5%, #366EFF 95%)",
