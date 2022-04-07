@@ -14,13 +14,20 @@ const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />;
 export const WarningBadge = Template.bind({});
 WarningBadge.args = {
   children: "Warning Badge",
-  variant: "warning",
+  background: "warning",
 };
 
 export const SuccessBadge = Template.bind({});
 SuccessBadge.args = {
   children: "Success Badge",
-  variant: "success",
+  background: "success",
+};
+
+export const LightSuccessBadge = Template.bind({});
+LightSuccessBadge.args = {
+  children: "Light Success Badge",
+  background: "success",
+  variant: "light"
 };
 
 export const LargeBadge = Template.bind({});
@@ -28,5 +35,5 @@ LargeBadge.args = {
   fontSize: "lg",
   boxSize: 20,
   children: "Large",
-  variant: "primary",
+  background: "primary",
 };

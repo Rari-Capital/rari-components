@@ -9,27 +9,36 @@ type BadgeProps = ChakraBadgeProps;
 /**
  * A badge component which can highlight another component.
  */
-const Badge: React.FC<BadgeProps> = ({ variant, children, ...restProps }) => {
+const Badge: React.FC<BadgeProps> = ({
+  background,
+  variant,
+  children,
+  ...restProps
+}) => {
   return (
     <ChakraBadge
       position="relative"
       // Create an `::after` pseudo-element that overlays the background with
       // a half-transparent black. This allows us to "darken" the background
       // color without needing to know the original color.
-      _after={{
-        content: `''`,
-        position: "absolute",
-        zIndex: 0,
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        background: "rgba(0, 0, 0, 0.5)",
-      }}
+      _after={
+        variant !== "light"
+          ? {
+              content: `''`,
+              position: "absolute",
+              zIndex: 0,
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "rgba(0, 0, 0, 0.5)",
+            }
+          : undefined
+      }
       // Match ::after border-radius with parent border-radius
       overflow="hidden"
-      backgroundColor={variant}
-      color={variant}
+      backgroundColor={background}
+      color={variant !== "light" ? background : "white"}
       fontWeight={600}
       borderRadius="lg"
       {...restProps}
