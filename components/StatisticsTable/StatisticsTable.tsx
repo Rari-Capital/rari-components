@@ -1,15 +1,18 @@
-import { Table, Tbody, Td, Tr } from "@chakra-ui/react";
+import { InfoIcon } from "@chakra-ui/icons";
+import { Flex, Table, Tbody, Td, Tr } from "@chakra-ui/react";
 import Card from "../Card";
+import Text from "../Text";
+import Tooltip from "../Tooltip";
 
-type StatisticTableProps = React.ComponentProps<typeof Card> & {
-  statistics: [title: string, value: string][];
+type StatisticsTableProps = React.ComponentProps<typeof Card> & {
+  statistics: [title: string, value: React.ReactNode, tooltip?: string][];
 };
 
 /**
  * A component that displays a two-column table of statistics — statistic titles
  * on the left column, statistic values on the right column.
  */
-const StatisticTable: React.FC<StatisticTableProps> = ({
+const StatisticsTable: React.FC<StatisticsTableProps> = ({
   statistics,
   ...restProps
 }) => {
@@ -17,7 +20,7 @@ const StatisticTable: React.FC<StatisticTableProps> = ({
     <Card borderWidth={1} {...restProps}>
       <Table>
         <Tbody>
-          {statistics.map(([title, value]) => (
+          {statistics.map(([title, value, tooltip]) => (
             <Tr
               key={title}
               _first={{
@@ -37,7 +40,18 @@ const StatisticTable: React.FC<StatisticTableProps> = ({
                 borderBottom="none"
                 textAlign="left"
               >
-                {title}
+                <Flex alignItems="center">
+                  <Text variant="secondary" mr={2}>
+                    {title}
+                  </Text>
+                  {tooltip && (
+                    <Tooltip label={tooltip}>
+                      <Text variant="secondary">
+                        <InfoIcon />
+                      </Text>
+                    </Tooltip>
+                  )}
+                </Flex>
               </Td>
               <Td
                 paddingX={0}
@@ -56,5 +70,5 @@ const StatisticTable: React.FC<StatisticTableProps> = ({
   );
 };
 
-export default StatisticTable;
-export type { StatisticTableProps };
+export default StatisticsTable;
+export type { StatisticsTableProps };

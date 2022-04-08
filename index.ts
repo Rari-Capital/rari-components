@@ -12,9 +12,9 @@ import Link, { LinkProps } from "./components/Link";
 import Modal, { ModalProps } from "./components/Modal";
 import Progress, { ProgressProps } from "./components/Progress";
 import Statistic, { StatisticProps } from "./components/Statistic";
-import StatisticTable, {
-  StatisticTableProps,
-} from "./components/StatisticTable";
+import StatisticsTable, {
+  StatisticsTableProps,
+} from "./components/StatisticsTable";
 import StepBubbles, { StepBubblesProps } from "./components/StepBubbles";
 import Table, { TableProps } from "./components/Table";
 import Tabs, { TabsProps } from "./components/Tabs";
@@ -46,7 +46,7 @@ export {
   Modal,
   Progress,
   Statistic,
-  StatisticTable,
+  StatisticsTable,
   StepBubbles,
   Table,
   Tabs,
@@ -70,7 +70,7 @@ export type {
   ModalProps,
   ProgressProps,
   StatisticProps,
-  StatisticTableProps,
+  StatisticsTableProps,
   StepBubblesProps,
   TableProps,
   TabsProps,

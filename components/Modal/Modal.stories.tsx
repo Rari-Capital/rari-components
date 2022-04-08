@@ -4,7 +4,7 @@ import { Box, useDisclosure } from "@chakra-ui/react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button from "../Button";
 import Heading from "../Heading";
-import StatisticTable from "../StatisticTable";
+import StatisticTable from "../StatisticsTable";
 import Text from "../Text";
 import TokenAmountInput from "../TokenAmountInput";
 import Modal from "./Modal";
