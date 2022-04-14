@@ -55,11 +55,13 @@ const components = {
       ...mapValues(colors, (_, key) => ({
         background: key,
         _hover: {
+          background: key,
           _disabled: {
             background: key,
           },
         },
         _disabled: {
+          background: key,
           _hover: {
             background: key,
           },
