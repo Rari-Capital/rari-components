@@ -46,7 +46,7 @@ const StatisticsTable: React.FC<StatisticsTableProps> = ({
                   </Text>
                   {tooltip && (
                     <Tooltip label={tooltip}>
-                      <Text variant="secondary">
+                      <Text variant="secondary" mt={-1}>
                         <InfoIcon />
                       </Text>
                     </Tooltip>
