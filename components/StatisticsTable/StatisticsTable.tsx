@@ -1,5 +1,5 @@
 import { InfoIcon } from "@chakra-ui/icons";
-import { Flex, Table, Tbody, Td, Tr } from "@chakra-ui/react";
+import { Box, BoxProps, Flex, Table, Tbody, Td, Tr } from "@chakra-ui/react";
 import Card from "../Card";
 import Text from "../Text";
 import Tooltip from "../Tooltip";
@@ -41,16 +41,14 @@ const StatisticsTable: React.FC<StatisticsTableProps> = ({
                 textAlign="left"
               >
                 <Flex alignItems="center">
-                  <Text variant="secondary" mr={2}>
-                    {title}
-                  </Text>
                   {tooltip && (
-                    <Tooltip label={tooltip}>
-                      <Text variant="secondary" mt={-1}>
+                    <Text variant="secondary" mr={2} mt={-1}>
+                      <Tooltip label={tooltip}>
                         <InfoIcon />
-                      </Text>
-                    </Tooltip>
+                      </Tooltip>
+                    </Text>
                   )}
+                  <Text variant="secondary">{title}</Text>
                 </Flex>
               </Td>
               <Td
