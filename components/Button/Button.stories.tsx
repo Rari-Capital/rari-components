@@ -92,3 +92,11 @@ NeutralDisabled.args = {
   size: "md",
   disabled: true,
 };
+
+export const DangerLoading = Template.bind({});
+DangerLoading.args = {
+  children: "Danger Loading Button",
+  variant: "danger",
+  size: "md",
+  loading: true,
+};
