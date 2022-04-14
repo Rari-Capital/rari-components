@@ -2,7 +2,7 @@
 
 A component library for Rari Capital's frontend properties.
 
-[Demo](https://rari-components.vercel.app/)
+[Slides](https://docs.google.com/presentation/d/1FTuIFPPQWBgbdSxOMAsBg6u0MWRMieF_RP15n5Ky_HQ/edit?usp=sharing) | [Demo](https://rari-components.vercel.app/)
 
 ## Usage
 
