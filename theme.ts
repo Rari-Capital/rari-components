@@ -59,6 +59,11 @@ const components = {
             background: key,
           },
         },
+        _disabled: {
+          _hover: {
+            background: key,
+          },
+        },
       })),
     },
     defaultProps: {
