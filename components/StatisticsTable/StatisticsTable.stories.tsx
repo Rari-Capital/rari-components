@@ -1,16 +1,16 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import StatisticTable from "./StatisticsTable";
+import StatisticsTable from "./StatisticsTable";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Rari/StatisticTable",
-  component: StatisticTable,
-} as ComponentMeta<typeof StatisticTable>;
+  title: "Rari/StatisticsTable",
+  component: StatisticsTable,
+} as ComponentMeta<typeof StatisticsTable>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof StatisticTable> = (args) => (
-  <StatisticTable {...args} />
+const Template: ComponentStory<typeof StatisticsTable> = (args) => (
+  <StatisticsTable {...args} />
 );
 
 export const Default = Template.bind({});

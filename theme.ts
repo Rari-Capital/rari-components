@@ -70,7 +70,7 @@ const components = {
     baseStyle: {
       color: "white",
       // Even though `Card` has a default border width of 0, some components
-      // which use `Card` internally (e.g. `StatisticTable`) rely on the
+      // which use `Card` internally (e.g. `StatisticsTable`) rely on the
       // border-color being set.
       borderColor: "darkgray",
       backgroundColor: "cardmatte",

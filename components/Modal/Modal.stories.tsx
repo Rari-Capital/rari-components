@@ -4,7 +4,7 @@ import { Box, useDisclosure } from "@chakra-ui/react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button from "../Button";
 import Heading from "../Heading";
-import StatisticTable from "../StatisticsTable";
+import StatisticsTable from "../StatisticsTable";
 import Text from "../Text";
 import TokenAmountInput from "../TokenAmountInput";
 import Modal from "./Modal";
@@ -80,7 +80,7 @@ Default.args = {
         onClickMax={() => {}}
         tokenAddress="0xc7283b66Eb1EB5FB86327f08e1B5816b0720212B"
       />
-      <StatisticTable
+      <StatisticsTable
         mt={4}
         statistics={[
           ["Collateral deposited", "0"],
