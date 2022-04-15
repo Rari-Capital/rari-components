@@ -31,3 +31,13 @@ Light.args = {
     ["Utilization", "69.00%"],
   ],
 };
+
+export const WithDivider = Template.bind({});
+WithDivider.args = {
+  statistics: [
+    ["Supply Balance", "$23,456"],
+    ["Borrow Limit", "$200"],
+    null,
+    ["Utilization", "69.00%"],
+  ],
+};

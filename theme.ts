@@ -244,7 +244,7 @@ const components = {
     },
     variants: {
       secondary: {
-        opacity: 0.5,
+        opacity: 0.6,
       },
       gradient: {
         background: "linear-gradient(87.87deg, #9C39FF 5%, #366EFF 95%)",
