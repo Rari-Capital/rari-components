@@ -37,7 +37,7 @@ WithDivider.args = {
   statistics: [
     ["Supply Balance", "$23,456"],
     ["Borrow Limit", "$200"],
-    null,
+    StatisticsTable.DIVIDER,
     ["Utilization", "69.00%"],
   ],
 };
