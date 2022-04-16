@@ -14,11 +14,13 @@ import Divider from "../Divider";
 import Text from "../Text";
 import Tooltip from "../Tooltip";
 
+type Statistic = [title: string, value: React.ReactNode, tooltip?: string];
+
 type StatisticsTableProps = React.ComponentProps<typeof Card> & {
-  statistics: (
-    | [title: string, value: React.ReactNode, tooltip?: string]
-    | null
-  )[];
+  /**
+   * `null` indicates that a divider should be shown instead of a statistic.
+   */
+  statistics: (Statistic | null)[];
 };
 
 /**
