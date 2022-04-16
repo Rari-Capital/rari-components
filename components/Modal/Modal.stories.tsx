@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import { Box, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, useDisclosure } from "@chakra-ui/react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button from "../Button";
 import Heading from "../Heading";
@@ -9,21 +9,12 @@ import Text from "../Text";
 import TokenAmountInput from "../TokenAmountInput";
 import Modal from "./Modal";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: "Rari/Modal",
   component: Modal,
 } as ComponentMeta<typeof Modal>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Modal> = ({
-  title,
-  subtitle,
-  progressValue,
-  children,
-  buttons,
-  stepBubbles,
-}) => {
+const Template: ComponentStory<typeof Modal> = (args) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   // Open the modal on initial load
   useEffect(() => {
@@ -43,18 +34,11 @@ const Template: ComponentStory<typeof Modal> = ({
   return (
     <Box>
       <Button onClick={onOpen}>Open Modal</Button>
-      <Modal
-        ctx={ctx}
-        title={title}
-        subtitle={subtitle}
-        buttons={buttons}
-        isOpen={isOpen}
-        onClose={onClose}
-        progressValue={progressValue}
-        stepBubbles={stepBubbles}
-      >
-        {children}
-      </Modal>
+      {/*
+       * Override ctx/isOpen/onClose with the fixed values defined in this
+       * template.
+       */}
+      <Modal {...args} ctx={ctx} isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };
@@ -159,6 +143,39 @@ WithCtx.args = {
   children: (ctx: any) => (
     <>
       <Text>The counter is currently at {ctx.counter}.</Text>
+    </>
+  ),
+};
+
+export const WithFooterChildren = Template.bind({});
+WithFooterChildren.args = {
+  title: "Footer Children",
+  subtitle: "This modal has footer children.",
+  children: (
+    <>
+      <Text>Some text.</Text>
+    </>
+  ),
+  buttons: [
+    {
+      children: "Button",
+      variant: "success",
+    },
+  ],
+  footerChildren: (
+    <>
+      <Heading size="xs">Common questions:</Heading>
+      <Flex justifyContent="space-between">
+        <Text mt={2} fontSize="xs">
+          What are safes?
+        </Text>
+        <Text mt={2} fontSize="xs">
+          What is boosting?
+        </Text>
+        <Text mt={2} fontSize="xs">
+          How do liquidations work?
+        </Text>
+      </Flex>
     </>
   ),
 };

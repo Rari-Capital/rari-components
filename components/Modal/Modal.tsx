@@ -1,6 +1,7 @@
 import { isFunction, isNil, isObject } from "lodash";
 import React from "react";
 import {
+  Box,
   Modal as ChakraModal,
   ModalProps as ChakraModalProps,
   Flex,
@@ -57,6 +58,10 @@ type ModalProps<Ctx> = Omit<ChakraModalProps, "children"> & {
    * Children (i.e. content) for the `Modal`.
    */
   children: React.ReactNode | ((ctx: Ctx) => React.ReactNode);
+  /**
+   * Children for the footer.
+   */
+  footerChildren?: React.ReactNode | ((ctx: Ctx) => React.ReactNode);
 };
 
 /**
@@ -67,10 +72,11 @@ function Modal<Ctx>({
   title,
   subtitle,
   progressValue = 0,
-  buttons = [],
+  buttons,
   children,
   onClose,
   stepBubbles,
+  footerChildren,
   ...restProps
 }: ModalProps<Ctx>): ReturnType<React.FC> {
   return (
@@ -104,47 +110,50 @@ function Modal<Ctx>({
         <ModalBody mt={!!title ? 0 : 4}>
           {isFunction(children) ? children(ctx) : children}
         </ModalBody>
-        <ModalFooter flexDirection="column" alignItems="stretch">
-          <Flex>
-            {(isFunction(buttons) ? buttons(ctx) : buttons).map(
-              (buttonProps, i) => {
-                const { children } = buttonProps;
+        {(!!stepBubbles || !!buttons) && (
+          <ModalFooter flexDirection="column" alignItems="stretch">
+            <Flex>
+              {(isFunction(buttons) ? buttons(ctx) : buttons ?? []).map(
+                (buttonProps, i) => {
+                  const { children } = buttonProps;
 
-                // This should generate a sufficiently unique key to avoid weird
-                // style changes when switching out buttons.
-                let key;
-                if (isNil(children)) {
-                  key = "nil";
-                } else if (!isObject(children)) {
-                  key = children.toString();
-                } else {
-                  key = Object.values(children)
-                    // Symbols cannot be converted to strings
-                    .filter((value) => typeof value !== "symbol")
-                    // Just get the first five properties to ensure keys aren't
-                    // excessively long.
-                    .slice(0, 5)
-                    .map((value) => `${value}`)
-                    .join(",");
+                  // This should generate a sufficiently unique key to avoid weird
+                  // style changes when switching out buttons.
+                  let key;
+                  if (isNil(children)) {
+                    key = "nil";
+                  } else if (!isObject(children)) {
+                    key = children.toString();
+                  } else {
+                    key = Object.values(children)
+                      // Symbols cannot be converted to strings
+                      .filter((value) => typeof value !== "symbol")
+                      // Just get the first five properties to ensure keys aren't
+                      // excessively long.
+                      .slice(0, 5)
+                      .map((value) => `${value}`)
+                      .join(",");
+                  }
+
+                  return <Button key={key} py={6} flex={1} {...buttonProps} />;
                 }
-
-                return <Button key={key} py={6} flex={1} {...buttonProps} />;
-              }
-            )}
-          </Flex>
-          {!!stepBubbles && (
-            <Flex
-              justifyContent="center"
-              flex={1}
-              mt={buttons.length > 0 ? 8 : 4}
-            >
-              <StepBubbles
-                size={8}
-                {...(isFunction(stepBubbles) ? stepBubbles(ctx) : stepBubbles)}
-              />
+              )}
             </Flex>
-          )}
-        </ModalFooter>
+            {!!stepBubbles && (
+              <Flex justifyContent="center" flex={1} mt={!!buttons ? 8 : 4}>
+                <StepBubbles
+                  size={8}
+                  {...(isFunction(stepBubbles)
+                    ? stepBubbles(ctx)
+                    : stepBubbles)}
+                />
+              </Flex>
+            )}
+          </ModalFooter>
+        )}
+        <Box background="neutral" px={6} py={4} mt={4}>
+          {isFunction(footerChildren) ? footerChildren(ctx) : footerChildren}
+        </Box>
       </ModalContent>
     </ChakraModal>
   );
