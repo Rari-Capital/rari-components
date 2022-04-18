@@ -151,9 +151,11 @@ function Modal<Ctx>({
             )}
           </ModalFooter>
         )}
-        <Box background="neutral" px={6} py={4} mt={4}>
-          {isFunction(footerChildren) ? footerChildren(ctx) : footerChildren}
-        </Box>
+        {!!footerChildren && (
+          <Box background="neutral" px={6} py={4} mt={4}>
+            {isFunction(footerChildren) ? footerChildren(ctx) : footerChildren}
+          </Box>
+        )}
       </ModalContent>
     </ChakraModal>
   );
